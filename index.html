@@ -44,7 +44,7 @@
         cursor: pointer;
     }
 
-    input[type="text"], input[type="password"], input[type="checkbox"] {
+    input[type="text"], input[type="password"] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -78,15 +78,20 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
 
-        
-        <input type="checkbox" name="remember"> Remember me
-        
-        <button type="button" onclick="login()">Login</button>
+    </div>
 
+    <div class="container">    
+        <input type="checkbox" name="remember"> Remember me
+    </div>
+    
+    <div class="container">
+        <button type="button" onclick="login()">Login</button>
+    </div>
+
+    <div class="container">
         <label>
             <button type="button" onclick="window.location.href='newuser.html'">New User Sign Up</button>
         </label>
-
     </div>
 
     <div class="container" style="background-color: #9B9B7A">
