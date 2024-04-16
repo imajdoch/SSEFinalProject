@@ -53,7 +53,7 @@
             box-sizing: border-box;
         }
 
-        button[type="submit"] {
+        button[type="submit"], button[type="button"] {
             width: 250px;
             padding: 14px 20px;
             margin: 8px 0;
@@ -76,12 +76,13 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
 
-            <button type="submit">Login</button>
-            <button type="button" onclick="window.location.href='newuser.html'">New User Sign Up</button>
-
             <label>
                 <input type="checkbox" name="remember"> Remember me
             </label>
+
+            <button type="submit">Login</button>
+            <button type="button" onclick="window.location.href='newuser.html'">New User Sign Up</button>
+            
         </div>
 
         <div class="container" style="background-color: #9B9B7A">
