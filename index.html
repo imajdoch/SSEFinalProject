@@ -74,8 +74,10 @@
     <!-- Sign-in form -->
     <h2>Sign In</h2>
     <input type="email" id="email" placeholder="Email"><br>
-    <input type="password" id="password" placeholder="Password"><br>
-    <button onclick="signIn()">Sign In</button>
+        <label for="psw"><b>Password</b></label>
+<input type="password" id="password" placeholder=" Password" name="psw" required>
+
+     <button type="submit" onclick="return validatePassword()">Sign In</button>
 
     <!-- Sign-out button -->
     <h2>Sign Out</h2>
