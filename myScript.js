@@ -20,3 +20,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+//password characters
+function validatePassword() {
+  const password = document.getElementById("password").value;
+  const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[a-zA-Z0-9!@#$%^&*()_+]{10,}$/;
+  if (!regex.test(password)) {
+    alert("Password must be at least 10 characters long and contain at least one capital letter and one special character.");
+    return false;
+  }
+  return true;
+}
