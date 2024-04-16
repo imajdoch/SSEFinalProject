@@ -150,12 +150,14 @@
         }
     }
 
+    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+    const auth = getAuth();
     // Sign up function
     function signUp() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().createUserWithEmailAndPassword(auth,email, password)
             .then((userCredential) => {
                 // Signed up successfully
                 console.log("User signed up successfully");
