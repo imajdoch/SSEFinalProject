@@ -39,7 +39,7 @@
     </div>
 
     <div class="cancelbtn">
-        <button type="cancelbutton">Cancel</button>
+        <button type="button">Cancel</button>
     </div>
 
     <div class="container">
@@ -63,10 +63,10 @@
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="myScript.js"></script>
-    <script>
-    const firebaseConfig = {
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="myScript.js"></script>
+<script>
+const firebaseConfig = {
     apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
     authDomain: "ssefinalproject.firebaseapp.com",
     projectId: "ssefinalproject",
@@ -75,45 +75,27 @@
     appId: "1:706635744855:web:c6a8a54603d38269a60512",
     measurementId: "G-FEWQLQ3PH8"
     };
-    firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-    // Get the modal
-    var modal = document.getElementById("forgotPasswordModal");
+// Get the modal
+var modal = document.getElementById("forgotPasswordModal");
 
-    // When the user clicks on the link, open the modal
-    function openModal() {
-        modal.style.display = "block";
-    }
+// When the user clicks on the link, open the modal
+function openModal() {
+    modal.style.display = "block";
+}
 
-    // When the user clicks on <span> (x), close the modal
-    function closeModal() {
+// When the user clicks on <span> (x), close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Close the modal if the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == modal) {
         modal.style.display = "none";
     }
-
-    // Close the modal if the user clicks outside of it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-    const auth = getAuth();
-    // Sign up function
-    function signUp() {
-        const email = document.getElementById("uname").value;
-        const password = document.getElementById("psw").value;
-
-        firebase.auth().createUserWithEmailAndPassword(auth,email, password)
-            .then((userCredential) => {
-                // Signed up successfully
-                console.log("User signed up successfully");
-            })
-            .catch((error) => {
-                // Handle sign-up errors
-                console.error("Sign-up error:", error.message);
-            });
-    }
+}
 
 // Sign up function
 function signUp() {
@@ -148,26 +130,26 @@ function signIn() {
         });
 }
 
-    // Password reset function
-    function resetPassword() {
-        const email = document.getElementById("resetEmail").value;
+// Password reset function
+function resetPassword() {
+    const email = document.getElementById("resetEmail").value;
 
-        firebase.auth().sendPasswordResetEmail(email)
-            .then(() => {
-                // Password reset email sent
-                console.log("Password reset email sent successfully");
-                closeModal(); // Close the modal after sending the email
-            })
-            .catch((error) => {
-                // Handle password reset errors
-                console.error("Password reset error:", error.message);
-            });
-    }
+    firebase.auth().sendPasswordResetEmail(email)
+        .then(() => {
+            // Password reset email sent
+            console.log("Password reset email sent successfully");
+            closeModal(); // Close the modal after sending the email
+        })
+        .catch((error) => {
+            // Handle password reset errors
+            console.error("Password reset error:", error.message);
+        });
+}
 
-    // Login function
-    function login() {
-        signIn(); // Call signIn function when login button is clicked
-    }
+// Login function
+function login() {
+    signIn(); // Call signIn function when login button is clicked
+}
 </script>
 </body>
 </html>
