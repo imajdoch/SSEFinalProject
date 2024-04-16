@@ -69,6 +69,8 @@
         <img src="img/SSE_Logo_Practice.png" alt="Logo">
     </div>
 
+    <h3>Login</h3>
+
     <div class="container">
         <label for="uname"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="uname" required>
@@ -76,13 +78,10 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
 
-        <label>
-            <input type="checkbox" name="remember"> Remember me
-        </label>
         
-        <label>
-            <button type="button" onclick="login()">Login</button>
-        </label>
+        <input type="checkbox" name="remember"> Remember me
+        
+        <button type="button" onclick="login()">Login</button>
 
         <label>
             <button type="button" onclick="window.location.href='newuser.html'">New User Sign Up</button>
@@ -171,6 +170,7 @@
             .then((userCredential) => {
                 // Signed in successfully
                 console.log("User signed in successfully");
+                window.location.href = "mainpage.html";
             })
             .catch((error) => {
                 // Handle sign-in errors
