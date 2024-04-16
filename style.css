@@ -79,10 +79,15 @@ button:hover {
 }
 
 /* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
+.cancelbtn [type="cancelbutton"] {
+  background-color: #f44336;
+  color: white;
   padding: 10px 18px;
-  color: #f44336;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 250px;
 }
 
 /* Center the avatar image inside this container */
