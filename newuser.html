@@ -52,7 +52,7 @@
                 .then((userCredential) => {
                     // Signed up successfully
                     console.log("User signed up successfully");
-                    // Redirect or perform other actions after successful sign-up
+                    // Redirect to the main page
                     window.location.href = "mainpage.html";
                 })
                 .catch((error) => {
@@ -60,6 +60,7 @@
                     console.error("Sign-up error:", error.message);
                 });
         }
+
     </script>
 </body>
 </html>
