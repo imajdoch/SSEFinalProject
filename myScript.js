@@ -20,6 +20,9 @@ btnLogin.addEventListener("click", signIn);
 btnSignup.addEventListener("click", signUp);
 btnLogout.addEventListener("click", logout);
 
+const btnLogin = document.getElementById("btnLogin");
+btnLogin.addEventListener("click", signIn);
+
 export const signIn = async () => {
     const txtEmail = document.getElementById("uname");
     const txtPassword = document.getElementById("psw");
@@ -35,6 +38,7 @@ export const signIn = async () => {
         console.error("Sign-in error:", error.message);
     }
 }
+
 
 export const signUp = async () => {
     const txtEmail = document.getElementById("newEmail");
