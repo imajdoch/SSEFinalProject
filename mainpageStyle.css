@@ -59,7 +59,6 @@ img.avatar {
     float: left;
     width: 25%;
     background-color: #9B9B7A;
-    padding-left: 20px;
 }
   
 /* Right column */
@@ -73,10 +72,9 @@ img.avatar {
 /* Add a card effect for articles */
 .card {
     background-color: white;
-    border-color: #333;
-    border-radius: 4px;
     padding: 20px;
     margin-top: 20px;
+    border: solid, black;
   }
   
 /* Clear floats after the columns */
