@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
-import firebase from "firebase/compat/app";
+
 // Required for side-effects
 import "firebase/firestore";
 import { 
