@@ -68,7 +68,7 @@ img.avatar {
 /* Right column */
 .rightcolumn {
   float: right;
-  width: 75%;
+  width: auto;
   background-color: #9B9B7A;
   padding-left: 20px;
 }
