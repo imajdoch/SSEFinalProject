@@ -12,7 +12,11 @@ const firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
+
+
+
 const firestore = getFirestore();
+firebase.initializeApp(firebaseConfig);
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
@@ -21,9 +25,7 @@ btnLogin.addEventListener("click", signIn);
 btnSignup.addEventListener("click", signUp);
 btnLogout.addEventListener("click", logout);
 
-
-
-export const signIn = async () => {
+export const signIn = async (email, password) => {
     const txtEmail = document.getElementById("uname");
     const txtPassword = document.getElementById("psw");
 
@@ -37,6 +39,7 @@ export const signIn = async () => {
     } catch (error) {
         console.error("Sign-in error:", error.message);
     }
+    return auth.signInWithEmailAndPassword(email, password);
 }
 
 
@@ -59,7 +62,9 @@ export const logout = async () => {
     await signOut(auth);
 }
 
-
+export const createUser = (email, password) => {
+    return auth.createUserWithEmailAndPassword(email, password);
+  };
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
