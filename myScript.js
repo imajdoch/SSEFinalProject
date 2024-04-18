@@ -31,7 +31,7 @@ const btnLogin = document.getElementById("btnLogin");
 const btnSignup = document.getElementById("btnSignup");
 const btnLogout = document.getElementById("btnLogout");
 
-const signIn = async () => {
+ export const signIn = async () => {
   const email = txtEmail.value;
   const password = txtPassword.value;
 
@@ -56,7 +56,7 @@ const signUp = async () => {
     }
 }
 
-const logout = async () => {
+ export const logout = async () => {
     await signOut(auth);
 }
 
