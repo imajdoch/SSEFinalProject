@@ -1,6 +1,6 @@
 body {
     padding: 10px;
-    background-color: #9B9B7A;
+    background: #9B9B7A;
 }
 
 /* Header */
@@ -25,6 +25,10 @@ img {
 img.avatar {
     width: 40%;
     border-radius: 50%;
+}
+
+.header h1 {
+  font-size: 50px;
 }
 
 /* Style the Top Navigation bar */
@@ -54,18 +58,21 @@ img.avatar {
 .leftcolumn {   
     float: left;
     width: 25%;
+    background-color: #9B9B7A;
+    padding-left: 20px;
 }
   
 /* Right column */
 .rightcolumn {
     float: left;
     width: 75%;
+    background-color: #9B9B7A;
     padding-left: 20px;
 }
 
 /* Add a card effect for articles */
 .card {
-    background-color: #9b9b7ae5;
+    background-color: white;
     border-color: #333;
     border-radius: 4px;
     padding: 20px;
@@ -93,6 +100,7 @@ button[type="applyFilter"] {
 
 /* Footer */
 .footer {
+    background-color: #9B9B7A;
     padding: 20px;
     text-align: center;
     margin-top: 20px;
