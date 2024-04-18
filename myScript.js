@@ -19,6 +19,8 @@ const firestore = getFirestore();
 firebase.initializeApp(firebaseConfig);
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
+
 
 const btnLogin = document.getElementById("btnLogin");
 btnLogin.addEventListener("click", signIn);
@@ -26,21 +28,23 @@ btnSignup.addEventListener("click", signUp);
 btnLogout.addEventListener("click", logout);
 
 export const signIn = async (email, password) => {
-    const txtEmail = document.getElementById("uname");
-    const txtPassword = document.getElementById("psw");
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-    const email = txtEmail.value;
-    const password = txtPassword.value;
+    // Save user information to Firestore
+    await setDoc(doc(firestore, 'users', user.uid), {
+      email: user.email,
+      // Add other user information as needed
+    });
 
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("User signed in successfully");
-        window.location.href = "mainpage.html";
-    } catch (error) {
-        console.error("Sign-in error:", error.message);
-    }
-    return auth.signInWithEmailAndPassword(email, password);
-}
+    console.log('User information saved to Firestore');
+    console.log("User signed in successfully");
+    window.location.href = "mainpage.html";
+  } catch (error) {
+    console.error("Sign-in error:", error.message);
+  }
+};
 
 
 export const signUp = async () => {
