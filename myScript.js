@@ -11,30 +11,30 @@ const firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
+
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
-const txtEmail = document.getElementById("uname");
-const txtPassword = document.getElementById("psw");
-const lblAuthState = document.getElementById("authState");
-const btnLogin = document.getElementById("btnLogin");
-const btnSignup = document.getElementById("btnSignup");
-const btnLogout = document.getElementById("btnLogout");
+export const signIn = async () => {
+    const txtEmail = document.getElementById("uname");
+    const txtPassword = document.getElementById("psw");
 
- export const signIn = async () => {
-  const email = txtEmail.value;
-  const password = txtPassword.value;
+    const email = txtEmail.value;
+    const password = txtPassword.value;
 
-  try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log("User signed in successfully");
-      window.location.href = "mainpage.html";
-  } catch (error) {
-      console.error("Sign-in error:", error.message);
-  }
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("User signed in successfully");
+        window.location.href = "mainpage.html";
+    } catch (error) {
+        console.error("Sign-in error:", error.message);
+    }
 }
 
 export const signUp = async () => {
+    const txtEmail = document.getElementById("newEmail");
+    const txtPassword = document.getElementById("newPassword");
+
     const email = txtEmail.value;
     const password = txtPassword.value;
 
@@ -46,7 +46,7 @@ export const signUp = async () => {
     }
 }
 
- export const logout = async () => {
+export const logout = async () => {
     await signOut(auth);
 }
 
