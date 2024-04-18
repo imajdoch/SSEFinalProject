@@ -16,12 +16,12 @@ const firestore = getFirestore();
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+const btnLogin = document.getElementById("btnLogin");
 btnLogin.addEventListener("click", signIn);
 btnSignup.addEventListener("click", signUp);
 btnLogout.addEventListener("click", logout);
 
-const btnLogin = document.getElementById("btnLogin");
-btnLogin.addEventListener("click", signIn);
+
 
 export const signIn = async () => {
     const txtEmail = document.getElementById("uname");
