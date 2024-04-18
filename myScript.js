@@ -16,6 +16,10 @@ const firestore = getFirestore();
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+btnLogin.addEventListener("click", signIn);
+btnSignup.addEventListener("click", signUp);
+btnLogout.addEventListener("click", logout);
+
 export const signIn = async () => {
     const txtEmail = document.getElementById("uname");
     const txtPassword = document.getElementById("psw");
@@ -51,9 +55,7 @@ export const logout = async () => {
     await signOut(auth);
 }
 
-btnLogin.addEventListener("click", signIn);
-btnSignup.addEventListener("click", signUp);
-btnLogout.addEventListener("click", logout);
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
