@@ -3,6 +3,25 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+
+    <script
+    const firebaseConfig = {
+        apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
+        authDomain: "ssefinalproject.firebaseapp.com",
+        projectId: "ssefinalproject",
+        storageBucket: "ssefinalproject.appspot.com",
+        messagingSenderId: "706635744855",
+        appId: "1:706635744855:web:c6a8a54603d38269a60512",
+        measurementId: "G-FEWQLQ3PH8"
+    };
+    
+    const firebaseApp = initializeApp(firebaseConfig);
+    const auth = getAuth(firebaseApp);
+    ></script>
+
 </head>
 <body>
     <form id="signupForm">
