@@ -54,6 +54,8 @@ img.avatar {
 .leftcolumn {   
     float: left;
     width: 25%;
+    border-color: #333;
+    border-radius: 4px;
 }
   
 /* Right column */
@@ -61,6 +63,8 @@ img.avatar {
     float: left;
     width: 75%;
     padding-left: 20px;
+    border-color: #333;
+    border-radius: 4px;
 }
 
 /* Add a card effect for articles */
