@@ -32,10 +32,14 @@ export const signIn = async (email, password) => {
     await setDoc(doc(firestore, 'users', user.uid), {
       email: user.email,
       // Add other user information as needed
+        onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log('User is signed in');
+      } else {
+        console.log('User is signed out');
+      }
     });
 
-    console.log('User information saved to Firestore');
-    console.log("User signed in successfully");
     window.location.href = "mainpage.html";
   } catch (error) {
     console.error("Sign-in error:", error.message);
