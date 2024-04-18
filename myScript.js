@@ -58,6 +58,7 @@ const signUp = async () => {
     }
 }
 
+/*
 const signIn = async () => {
     const email = txtEmail.value;
     const password = txtPassword.value;
@@ -70,6 +71,28 @@ const signIn = async () => {
         console.error("Sign-in error:", error.message);
     }
 }
+*/
+
+const signIn = async () => {
+  const email = txtEmail.value;
+  const password = txtPassword.value;
+
+  try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("User signed in successfully");
+      window.location.href = "mainpage.html";
+  } catch (error) {
+      // Check if the error is due to an invalid password
+      if (error.code === "auth/wrong-password") {
+          // Display a message indicating that the password is incorrect
+          alert("Incorrect password. Please try again.");
+      } else {
+          // Handle other sign-in errors
+          console.error("Sign-in error:", error.message);
+      }
+  }
+}
+
 
 const resetPassword = () => {
     const email = document.getElementById("resetEmail").value;
