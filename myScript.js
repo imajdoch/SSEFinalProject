@@ -16,11 +16,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
 export const signIn = async () => {
-    const txtEmail = document.getElementById("uname");
-    const txtPassword = document.getElementById("psw");
-
-    const email = txtEmail.value;
-    const password = txtPassword.value;
+    const email = document.getElementById("uname").value;
+    const password = document.getElementById("psw").value;
 
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
