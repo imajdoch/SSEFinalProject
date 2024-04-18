@@ -77,21 +77,38 @@ const signIn = async () => {
   const email = txtEmail.value;
   const password = txtPassword.value;
 
+  // Function to validate email format
+  function validateEmail(email) {
+      const re = /\S+@\S+\.\S+/;
+      return re.test(email);
+  }
+
+  // Function to validate password length
+  function validatePassword(password) {
+      return password.length >= 10; 
+  }
+
+  // Validate email and password inputs
+  if (!validateEmail(email)) {
+      console.error("Invalid email format");
+      return;
+  }
+
+  if (!validatePassword(password)) {
+      console.error("Password must be at least 10 characters long");
+      return;
+  }
+
   try {
+      // Proceed with sign-in attempt
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("User signed in successfully");
       window.location.href = "mainpage.html";
   } catch (error) {
-      // Check if the error is due to an invalid password
-      if (error.code === "auth/wrong-password") {
-          // Display a message indicating that the password is incorrect
-          alert("Incorrect password. Please try again.");
-      } else {
-          // Handle other sign-in errors
-          console.error("Sign-in error:", error.message);
-      }
+      console.error("Sign-in error:", error.message);
   }
 }
+
 
 
 const resetPassword = () => {
