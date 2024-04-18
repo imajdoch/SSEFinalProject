@@ -6,46 +6,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js" type="module"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js" type="module"></script>
     <script src="myScript.js" type="module"></script>
-
-    <script>
-        // Firebase configuration
-        /*const firebaseConfig = {
-        apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
-        authDomain: "imajdoch.github.io",
-        projectId: "ssefinalproject",
-        storageBucket: "ssefinalproject.appspot.com",
-        messagingSenderId: "706635744855",
-        appId: "1:706635744855:web:c6a8a54603d38269a60512",
-        measurementId: "G-FEWQLQ3PH8"
-    };
-        firebase.initializeApp(firebaseConfig);
-        const auth = getAuth();*/
-
-  // Sign up function
-  function signUp() {
-    const email = document.getElementById("newEmail").value;
-    const password = document.getElementById("newPassword").value;
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed up successfully
-        console.log("User signed up successfully");
-        // Store user data
-        const user = userCredential.user;
-        console.log(user);
-        // Redirect to the main page
-        window.location.replace("mainpage.html");
-      })
-      .catch((error) => {
-        // Handle sign-up errors
-        console.error("Sign-up error:", error.message);
-      });
-  }
-
-  // Add event listener to the sign up button
-  document.getElementById("signUpButton").addEventListener("click", signUp);
-</script>
-
 </head>
 <body>
     <form id="signupForm">
@@ -60,7 +20,7 @@
             <label for="newpsw"><b>New Password</b></label>
             <input type="password" id="newPassword" placeholder="Enter New Password" name="newpsw" required>
 
-            <button type="button" onclick="signUp()" id="signUpButton">Sign Up</button>
+            <button type="button" id="signUpButton">Sign Up</button>
 
         </div>
 
@@ -68,11 +28,13 @@
             <button type="cancelbutton" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
         </div>
     </form>
+
+    <!-- Script to add event listener after DOMContentLoaded -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Add event listener to the sign up button
             document.getElementById("signUpButton").addEventListener("click", signUp);
         });
-        </script>    
+    </script>
 </body>
 </html>
