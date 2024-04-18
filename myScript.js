@@ -12,7 +12,7 @@ import {
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
-    authDomain: "ssefinalproject.firebaseapp.com",
+    authDomain: "imajdoch.github.io",
     projectId: "ssefinalproject",
     storageBucket: "ssefinalproject.appspot.com",
     messagingSenderId: "706635744855",
