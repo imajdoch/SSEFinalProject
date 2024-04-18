@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -11,13 +12,16 @@ const firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
-
+const firestore = getFirestore();
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
 export const signIn = async () => {
-    const email = document.getElementById("uname").value;
-    const password = document.getElementById("psw").value;
+    const txtEmail = document.getElementById("uname");
+    const txtPassword = document.getElementById("psw");
+
+    const email = txtEmail.value;
+    const password = txtPassword.value;
 
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
