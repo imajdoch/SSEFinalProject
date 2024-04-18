@@ -34,7 +34,7 @@ const btnLogout = document.getElementById("btnLogout");
   }
 }
 
-const signUp = async () => {
+export const signUp = async () => {
     const email = txtEmail.value;
     const password = txtPassword.value;
 
