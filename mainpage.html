@@ -55,7 +55,7 @@
           <div class="rightcolumn">
             <div class="card">
               <h2>My Library</h2>
-              <div class="book-grid">
+              <div id="bookGrid" class="book-grid">
                 <div class="book">
                   <img src="img/Book1.jpg" alt="Book 1">
                   <p>Secure Software Development</p>
@@ -83,13 +83,18 @@
 
     <script>
       // Function to fetch and display books
-    function fetchAndDisplayBooks() {
+      function fetchAndDisplayBooks() {
+        const bookGrid = document.getElementById('bookGrid');
+        if (!bookGrid) {
+            console.error('bookGrid element not found!');
+            return; // Exit the function if bookGrid is null
+        }
+
         // Get the new book from local storage
         const newBook = JSON.parse(localStorage.getItem('newBook'));
         
         if (newBook) {
             // Add the new book to the grid
-            const bookGrid = document.getElementById('bookGrid');
             const bookDiv = document.createElement('div');
             bookDiv.classList.add('book');
             bookDiv.innerHTML = `
@@ -105,6 +110,7 @@
 
     // Call the function initially to load existing books
     fetchAndDisplayBooks();
+    setInterval(fetchAndDisplayBooks, 5000);
   </script>
 
 </body>
