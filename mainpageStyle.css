@@ -136,7 +136,7 @@ button[type="applyFilter"] {
 .rating label {
   cursor: pointer;
   font-size: 25px;
-  color: #ccc;
+  color: #f7d00a;
 }
 
 .rating label:before {
@@ -144,7 +144,7 @@ button[type="applyFilter"] {
 }
 
 .rating input:checked ~ label, .rating input:checked ~ label + label:before {
-  color: #f7d00a; /* Yellow color for selected stars and stars to the left */
+  color: #ccc; /* Yellow color for selected stars and stars to the left */
 }
 
 .rating {
