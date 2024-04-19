@@ -147,6 +147,9 @@ button[type="applyFilter"] {
   color: #f7d00a; /* Yellow color for selected stars and stars to the left */
 }
 
+.rating {
+  flex-direction: row-reverse;
+}
 
 /* Footer */
 .footer {
