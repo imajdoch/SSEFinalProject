@@ -110,7 +110,44 @@
   
       // Call the function initially to load existing books
       fetchAndDisplayBooks();
-  </script>
+
+      const bookGrid = document.getElementById('bookGrid');
+
+      // Add event listener to each book element
+      const books = bookGrid.querySelectorAll('.book');
+      books.forEach(book => {
+        book.addEventListener('click', () => {
+            const bookId = book.dataset.bookId; // Get the book ID from data attribute
+            const bookInfo = getBookInfoById(bookId); // Function to retrieve book information
+            
+            // Display book information in a popup or modal
+            displayBookInfoPopup(bookInfo);
+        });
+      });
+
+      // Function to retrieve book information by ID
+      function getBookInfoById(bookId) {
+        // Retrieve the new book information from localStorage
+        const newBook = JSON.parse(localStorage.getItem('newBook'));
+
+        // Check if newBook exists and if it matches the requested bookId
+        if (newBook && newBook.id === bookId) {
+          // Return the new book information
+          return newBook;
+        } 
+        else {
+          // Handle the case where the requested bookId doesn't match the new book
+          console.error('Book with ID ' + bookId + ' not found.');
+          return null;
+        }
+      }
+
+      // Example function to display book information in a popup or modal
+      function displayBookInfoPopup(bookInfo) {
+        // Example: Create a simple alert with book information
+        alert(`Title: ${bookInfo.title}\nAuthor: ${bookInfo.author}\nCategory: ${bookInfo.category}\nPublication Year: ${bookInfo.publicationYear}`);
+      }
+    </script>
 
 </body>
 </html>
