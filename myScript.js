@@ -4,7 +4,7 @@ import { setDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 
 var firebaseConfig = {
     apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
-    authDomain: "imajdoch.github.io",
+    authDomain: "ssefinalproject.firebaseapp.com",
     projectId: "ssefinalproject",
     storageBucket: "ssefinalproject.appspot.com",
     messagingSenderId: "706635744855",
