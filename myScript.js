@@ -50,6 +50,7 @@ console.log('After setDoc');
 };
 
 // Function to sign up user
+// Function to sign up user
 export const signUp = async () => {
     const txtEmail = document.getElementById("newEmail");
     const txtPassword = document.getElementById("newPassword");
@@ -60,11 +61,29 @@ export const signUp = async () => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         console.log("User signed up successfully");
+        // Redirect to main page after successful sign-up
+        window.location.href = "mainpage.html";
     } catch (error) {
         console.error("Sign-up error:", error.message);
         // Handle sign-up error
     }
 };
+
+try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    console.log("User signed up successfully");
+    // Save user data to Firestore
+    await setDoc(doc(firestore, 'users', userCredential.user.uid), {
+        email: email,
+        // Add other user information as needed
+    });
+    // Redirect to main page after successful sign-up
+    window.location.href = "mainpage.html";
+} catch (error) {
+    console.error("Sign-up error:", error.code, error.message);
+    // Handle sign-up error
+}
+
 
 // Function to log out user
 export const logout = async () => {
