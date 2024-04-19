@@ -19,13 +19,6 @@
     
 </head>
 <body>
-        <!-- Script to add event listener after DOMContentLoaded -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Add event listener to the sign up button
-                document.getElementById("signUpButton").addEventListener("click", signUp);
-            });
-        </script>
 
     <form id="signupForm">
         <div class="imgcontainer">
@@ -52,5 +45,14 @@
             <button type="cancelbutton" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
         </div>
     </form>
+            <!-- Script to add event listener after DOMContentLoaded -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Add event listener to the sign up button
+                    document.getElementById("signUpButton").addEventListener("click", signUp);
+                });
+            </script>
+    <script src="myScript.js" type="module"></script>
+
 </body>
 </html>
