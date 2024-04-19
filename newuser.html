@@ -41,7 +41,9 @@
     </form>
 
     <!-- Script to add event listener after DOMContentLoaded -->
-    <script>
+    <script type="module">
+        import { signUp } from './myScript.js';
+        
         document.addEventListener("DOMContentLoaded", function() {
             // Add event listener to the sign up button
             document.getElementById("signUpButton").addEventListener("click", signUp);
