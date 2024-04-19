@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js" type="module"></script>
+    <script src="myScript.js" type="module"></script>
+
+    <title>Add New Book</title>
+    <link rel="stylesheet" href="mainpageStyle.css">
+</head>
+<body>
+    <!-- Change mainpage.html to where we need checkbox input to go-->
+    <form action="mainpage.html" method="get">
+        <div class="imgcontainer">
+            <img src="img/SSE_Logo_Practice.png" alt="Logo">
+        </div>
+
+        <div class="header">
+          <h1>Add New Book</h1>
+        </div>
+        
+        <div class="topnav">
+          <a href='README.md'>About Us</a>
+          <a href='mainpage.html'>Library</a>
+          <a href="index.html" style="float:right">Logout</a>
+        </div>
+
+        <div class="row">
+          <div class="leftcolumn">
+            <div class="imgcontainer">
+                <img src="img/SSE_Logo_Practice.png" alt="Logo">
+            </div>
+          </div>
+
+          <div class="rightcolumn">
+            <div class="card">
+                <label for="bktitle"><b>Title:</b></label>
+                <input type="text" placeholder="Enter Book Title" name="bktitle" required>
+
+                <label for="bkauthor"><b>Author:</b></label>
+                <input type="text" placeholder="Enter Book Author" name="bkauthor" required>
+
+                <label for="publisher"><b>Publisher:</b></label>
+                <input type="text" placeholder="Enter Book Publisher" name="bkpublisher">
+
+                <label for="publicationYear"><b>Publication Year:</b></label>
+                <input type="text" placeholder="Enter Book Publication Year" name="bkpublicationYear">
+
+                <label for="category"><b>Category:</b></label>
+                <input type="text" placeholder="Enter Book Category" name="bkcategory">
+
+                <label for="isbn"><b>ISBN:</b></label>
+                <input type="text" placeholder="Enter Book ISBN" name="bkisbn">
+            </div>
+          </div>
+        </div>
+    </form>
+</body>
+</html>
