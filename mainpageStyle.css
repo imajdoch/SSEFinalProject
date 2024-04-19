@@ -123,6 +123,30 @@ button[type="applyFilter"] {
   width: auto;
 }
 
+/* Star rating */
+.rating {
+  display: flex;
+  justify-content: center;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  font-size: 25px;
+  color: #ccc;
+}
+
+.rating label:before {
+  content: '\2605'; /* Unicode for star */
+}
+
+.rating input:checked ~ label {
+  color: #f7d00a; /* Yellow color for selected stars */
+}
+
 /* Footer */
 .footer {
   background-color: #9B9B7A;
