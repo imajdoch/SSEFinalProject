@@ -1,46 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
-    <script type="module" src="myScript.js"></script>
-
-
-    <title>Login Form</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="myScript.js"></script>
 </head>
 <body>
-<form action="mainpage.html" method="get">
-    <div class="imgcontainer">
-        <img src="img/SSE_Logo_Practice.png" alt="Logo">
-    </div>
 
-    <div class="topnav">
-        <a href='README.md'>About Us</a>
-        <a href="#">Homepage</a>
-        <a href='newuser.html'>Create New Account</a>
-    </div>
+    <form id="loginForm">
+        <div class="imgcontainer">
+            <img src="img/SSE_Logo_Practice.png" alt="Logo">
+        </div>
 
+        <div class="topnav">
+            <a href="README.md">About Us</a>
+            <a href="#">Homepage</a>
+            <a href="newuser.html">Create New Account</a>
+        </div>
 
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="newEmail" placeholder="Enter Email" name="newuname" required>
 
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="newPassword" placeholder="Enter Password" name="newpsw" required>
 
-    <div class="container">
-       <label for="uname"><b>Email:</b></label>
-    <input type="text" id="uname" placeholder="Enter Email" name="uname" required>
+            <button type="button" id="signUpButton">Sign In</button>
+        </div>
 
-       <label for="psw"><b>Password:</b></label>
-    <input type="password" id="psw" placeholder="Enter Password" name="psw" required>
-        <br></br>
-        <label for="remember">Remember me</label>
-        <input type="checkbox" name="remember" id="remember">
-        
-        <span class="psw">Forgot <a href="#" onclick="openModal()">password?</a></span>
-        <br></br>
-        <button type="submit" id ="btnLogin">Login</button>
-    </div>
+        <div class="container">
+            <button type="button" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
 
-</form>
+</body>
+</html>
 
 
 </div>
