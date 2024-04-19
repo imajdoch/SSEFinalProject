@@ -61,14 +61,14 @@ img.avatar {
 /* Left column */
 .leftcolumn {   
   float: left;
-  width: auto;
+  width: 20%;
   background-color: #9B9B7A;
 }
   
 /* Right column */
 .rightcolumn {
   float: right;
-  width: auto;
+  width: 80%;
   background-color: #9B9B7A;
   padding-left: 20px;
 }
