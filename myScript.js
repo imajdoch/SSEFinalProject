@@ -83,6 +83,10 @@ try {
     console.error("Sign-up error:", error.code, error.message);
     // Handle sign-up error
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const signUpButton = document.getElementById("signUpButton");
+    signUpButton.addEventListener("click", signUp);
+});
 
 
 // Function to log out user
