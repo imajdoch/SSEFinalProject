@@ -104,7 +104,7 @@ export const logout = async () => {
         // Redirect to login page after logout
         window.location.href = "login.html";
     } catch (error) {
-        console.error("Logout error:", error.message);
+        console.error("Sign-up error:", error.code, error.message);
         // Handle logout error
     }
 };
