@@ -126,7 +126,7 @@ button[type="applyFilter"] {
 /* Star rating */
 .rating {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .rating input {
