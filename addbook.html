@@ -111,24 +111,37 @@
             reader.readAsDataURL(fileInput.files[0]);
         }
     });
+
+    // JavaScript for handling book addition
+    document.querySelector('button[type="addBook"]').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Retrieve book information from input fields
+        const title = document.querySelector('input[name="bktitle"]').value;
+        const author = document.querySelector('input[name="bkauthor"]').value;
+        const coverImg = document.querySelector('input[name="bookImage"]').value;
+        const publisher = document.querySelector('input[name="bkpublisher"]').value;
+        const publicationYear = document.querySelector('input[name="bkpublicationYear"]').value;
+        const category = document.querySelector('input[name="bkcategory"]').value;
+        const isbn = document.querySelector('input[name="bkisbn"]').value;
+        const rating = document.querySelector('input[name="rating"]').value;
+
+        // Store book information in local storage
+        const newBook = {
+            title: title,
+            author: author,
+            image: coverImg,
+            publisher: publisher,
+            publicationYear: publicationYear,
+            category: category,
+            isbn: isbn,
+            rating: rating
+        };
+        localStorage.setItem('newBook', JSON.stringify(newBook));
+
+        // Redirect to mainpage.html
+        window.location.href = 'mainpage.html';
+    });
 </script>
-
-<script>
-    // Assuming you have book information available in JavaScript variables
-    const newBook = {
-        title: bktitle,
-        image: bookImage,
-        author: bkauthor,
-        publisher: bkpublisher,
-        publicationYear: bkpublicationYear,
-        category: bkcategory,
-        isbn: bkisbn,
-        rating: rating
-    };
-
-    // Store the new book information in local storage
-    localStorage.setItem('newBook', JSON.stringify(newBook));
-</script>
-
 </body>
 </html>
