@@ -29,12 +29,14 @@ export const signIn = async () => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-
-        // Save user information to Firestore
-        await setDoc(doc(firestore, 'users', user.uid), {
-            email: user.email,
-            // Add other user information as needed
-        });
+        
+console.log('User:', user);
+console.log('Before setDoc');
+await setDoc(doc(firestore, 'users', user.uid), {
+    email: user.email,
+    // Add other user information as needed
+});
+console.log('After setDoc');
 
         // Redirect to main page after successful login
         window.location.href = "mainpage.html";
