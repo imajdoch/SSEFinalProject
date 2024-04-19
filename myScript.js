@@ -1,10 +1,4 @@
 
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
     authDomain: "imajdoch.github.io",
