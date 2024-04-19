@@ -9,20 +9,21 @@ body {
 
 /* Header */
 .header {
-    
+    padding: 20px;
     background-color: #9B9B7A;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 img {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
   }
   
 /* Center the avatar image inside this container */
 .imgcontainer {
     text-align: center;
-    margin: 24px 0 12px 0;
+    margin: 12px 0;
 }
   
 /* Avatar image */
