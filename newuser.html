@@ -3,20 +3,14 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js" type="module"></script>
-        <!-- Firebase App (the core Firebase SDK) -->
+    <!-- Firebase SDK imports -->
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-
-    <!-- Firebase Authentication -->
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+    <!-- Additional Firebase compatibility imports if needed -->
 
-    <!-- Firebase Realtime Database -->
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
-
+    <!-- Import myScript.js for Firebase initialization and functions -->
     <script src="myScript.js" type="module"></script>
-    
 </head>
 <body>
 
@@ -45,14 +39,14 @@
             <button type="cancelbutton" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
         </div>
     </form>
-            <!-- Script to add event listener after DOMContentLoaded -->
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    // Add event listener to the sign up button
-                    document.getElementById("signUpButton").addEventListener("click", signUp);
-                });
-            </script>
-    <script src="myScript.js" type="module"></script>
+
+    <!-- Script to add event listener after DOMContentLoaded -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add event listener to the sign up button
+            document.getElementById("signUpButton").addEventListener("click", signUp);
+        });
+    </script>
 
 </body>
 </html>
