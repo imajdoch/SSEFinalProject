@@ -67,11 +67,13 @@ export const signUp = async () => {
 
 export const logout = async () => {
     await signOut(auth);
-}
+};
 
 export const createUser = (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
-  };
+  }
+  
+  export { signIn, signUp, logout };
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
