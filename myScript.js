@@ -12,12 +12,10 @@ var firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
-// Initialize Firebase and get Auth and Firestore instances
-const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-const database = firebase.database();
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+const firestore = getFirestore();
 
 // Example usage
 console.log(auth);
