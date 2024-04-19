@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
@@ -32,7 +34,9 @@ export const signIn = async (email, password) => {
     await setDoc(doc(firestore, 'users', user.uid), {
       email: user.email,
       // Add other user information as needed
-        onAuthStateChanged(auth, (user) => {
+    });
+      
+      onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('User is signed in');
       } else {
