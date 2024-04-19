@@ -74,7 +74,7 @@ export const createUser = (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
   }
   
-  export { signIn, signUp, logout };
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
