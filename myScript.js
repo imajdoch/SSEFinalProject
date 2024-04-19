@@ -13,17 +13,12 @@ const firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase and get Auth and Firestore instances
 const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-const firestore = getFirestore(firebaseApp);
+const auth = getAuth();
+const firestore = getFirestore();
 
-
-const btnLogin = document.getElementById("btnLogin");
-btnLogin.addEventListener("click", signIn);
-btnSignup.addEventListener("click", signUp);
-btnLogout.addEventListener("click", logout);
-
+// Function to sign in user
 export const signIn = async () => {
     const txtEmail = document.getElementById("uname");
     const txtPassword = document.getElementById("psw");
@@ -41,20 +36,15 @@ export const signIn = async () => {
             // Add other user information as needed
         });
 
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log('User is signed in');
-            } else {
-                console.log('User is signed out');
-            }
-        });
-
+        // Redirect to main page after successful login
         window.location.href = "mainpage.html";
     } catch (error) {
         console.error("Sign-in error:", error.message);
+        // Handle sign-in error
     }
 };
 
+// Function to sign up user
 export const signUp = async () => {
     const txtEmail = document.getElementById("newEmail");
     const txtPassword = document.getElementById("newPassword");
@@ -67,27 +57,29 @@ export const signUp = async () => {
         console.log("User signed up successfully");
     } catch (error) {
         console.error("Sign-up error:", error.message);
+        // Handle sign-up error
     }
-}
-
-export const logout = async () => {
-    await signOut(auth);
 };
 
-export const createUser = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
-  }
-  
+// Function to log out user
+export const logout = async () => {
+    try {
+        await signOut(auth);
+        // Redirect to login page after logout
+        window.location.href = "login.html";
+    } catch (error) {
+        console.error("Logout error:", error.message);
+        // Handle logout error
+    }
+};
+
+// Listener for authentication state changes
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log(user);
-        showApp();
-        showLoginState(user);
-
-        hideLoginError();
-        hideLinkError();
+        // User is signed in, perform necessary actions
     } else {
-        showLoginForm();
-        lblAuthState.innerHTML = `You're not logged in.`;
+        console.log('User is signed out');
+        // User is signed out, perform necessary actions
     }
 });
