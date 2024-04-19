@@ -1,0 +1,13 @@
+{
+  "name": "SSEFinalProject",
+  "version": "1.0.0",
+  "description": "SSE Final Project",
+   "main": "myScript.js",
+  "scripts": {
+    "start": "firebase serve",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase": "^10.11.0"
+  }
+}
