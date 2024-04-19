@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="myScript.js"></script>
+    <script type="module" src="myScript.js" defer></script>
 </head>
 <body>
 
@@ -13,9 +15,9 @@
         </div>
 
         <div class="topnav">
-            <a href='README.md'>About Us</a>
+            <a href="README.md">About Us</a>
             <a href="#">Homepage</a>
-            <a href='newuser.html'>Create New Account</a>
+            <a href="newuser.html">Create New Account</a>
         </div>
 
         <div class="container">
@@ -29,19 +31,9 @@
         </div>
 
         <div class="container">
-            <button type="cancelbutton" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="window.location.href='index.html'" class="cancelbtn">Cancel</button>
         </div>
     </form>
-
-    <!-- Script to add event listener after DOMContentLoaded -->
-    <script type="module">
-        import { signUp } from './myScript.js';
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            // Add event listener to the sign up button
-            document.getElementById("signUpButton").addEventListener("click", signUp);
-        });
-    </script>
 
 </body>
 </html>
