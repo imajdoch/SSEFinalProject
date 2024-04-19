@@ -143,8 +143,8 @@ button[type="applyFilter"] {
   content: '\2605'; /* Unicode for star */
 }
 
-.rating input:checked ~ label {
-  color: #f7d00a; /* Yellow color for selected stars */
+.rating input:checked ~ label, .rating input:checked ~ label + label:before {
+  color: #f7d00a; /* Yellow color for selected stars and stars to the left */
 }
 
 
