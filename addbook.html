@@ -32,8 +32,13 @@
 
     <div class="row">
       <div class="leftcolumn">
-        <div class="imgcontainer">
-            <img src="img/SSE_Logo_Practice.png" alt="Logo">
+        <div class="card">
+            <h2>Upload Book Image:</h2>
+            <form id="imageUploadForm">
+                <input type="file" id="bookImage" name="bookImage" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>
+            <div id="uploadedImage"></div>
         </div>
       </div>
 
@@ -84,5 +89,41 @@
       </div>
     </div>
 </form>
+
+<script>
+    // JavaScript for handling image upload
+    document.getElementById('imageUploadForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const fileInput = document.getElementById('bookImage');
+        const uploadedImage = document.getElementById('uploadedImage');
+
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                uploadedImage.innerHTML = ''; // Clear previous image
+                uploadedImage.appendChild(img);
+            }
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    });
+</script>
+
+<script>
+    // Assuming you have book information available in JavaScript variables
+    const newBook = {
+        title: "New Book Title",
+        image: "newbook.jpg"
+        // Add other properties as needed
+    };
+
+    // Store the new book information in local storage
+    localStorage.setItem('newBook', JSON.stringify(newBook));
+</script>
+
 </body>
 </html>

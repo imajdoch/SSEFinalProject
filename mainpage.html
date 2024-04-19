@@ -80,5 +80,32 @@
           </div>
         </div>
     </form>
+
+    <script>
+      // Function to fetch and display books
+    function fetchAndDisplayBooks() {
+        // Get the new book from local storage
+        const newBook = JSON.parse(localStorage.getItem('newBook'));
+        
+        if (newBook) {
+            // Add the new book to the grid
+            const bookGrid = document.getElementById('bookGrid');
+            const bookDiv = document.createElement('div');
+            bookDiv.classList.add('book');
+            bookDiv.innerHTML = `
+                <img src="${newBook.image}" alt="${newBook.title}">
+                <p>${newBook.title}</p>
+            `;
+            bookGrid.appendChild(bookDiv);
+            
+            // Remove the new book from local storage
+            localStorage.removeItem('newBook');
+        }
+    }
+
+    // Call the function initially to load existing books
+    fetchAndDisplayBooks();
+  </script>
+
 </body>
 </html>
