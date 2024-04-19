@@ -14,9 +14,15 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase and get Auth and Firestore instances
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-const firestore = getFirestore();
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const database = firebase.database();
+
+// Example usage
+console.log(auth);
+console.log(firestore);
+console.log(database);
 
 // Function to sign in user
 export const signIn = async () => {
