@@ -51,7 +51,7 @@ export const signIn = async () => {
 
 // Attach the signIn function to the sign in button
 document.addEventListener("DOMContentLoaded", () => {
-    const signInButton = document.getElementById("signIn");
+    const signInButton = document.getElementById("signInButton");
     signInButton.addEventListener("click", signIn);
 });
 
@@ -90,7 +90,7 @@ try {
     // Handle sign-up error
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const signUpButton = document.getElementById("signUp");
+    const signUpButton = document.getElementById("signUpButton");
     signUpButton.addEventListener("click", signUp);
 });
 
