@@ -12,51 +12,62 @@
     <link rel="stylesheet" href="mainpageStyle.css">
 </head>
 <body>
-    <!-- Change mainpage.html to where we need checkbox input to go-->
-    <form action="mainpage.html" method="get">
-        <div class="imgcontainer">
-            <img src="img/SSE_Logo_Practice.png" alt="Logo">
-        </div>
+   <!-- Modal -->
+<div id="NewBookModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Add Book</h2>
+        <p>Add information about your book:</p>
+        <form>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <br><br>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+            <br><br>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre">
+            <br><br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+            <br><br>
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn">
+            <br><br>
+            <label for="publish_date">Publish Date:</label>
+            <input type="date" id="publish_date" name="publish_date">
+            <br><br>
+	    <label for="cover_image">Cover Image:</label>
+            <input type="file" id="cover_image" name="cover_image" style="max-width: 200px; max-height: 200px;">
+            <br><br>
+            <input type="submit" value="Add Book">
+        </form>
+    </div>
+</div>
 
-        <div class="header">
-          <h1>Add New Book</h1>
-        </div>
-        
-        <div class="topnav">
-          <a href='README.md'>About Us</a>
-          <a href='mainpage.html'>Library</a>
-          <a href="index.html" style="float:right">Logout</a>
-        </div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("NewBookModal");
 
-        <div class="row">
-          <div class="leftcolumn">
-            <div class="imgcontainer">
-                <img src="img/SSE_Logo_Practice.png" alt="Logo">
-            </div>
-          </div>
+    // Get the button that opens the modal
+    var btn = document.getElementById("openNewBookModalButton");
 
-          <div class="rightcolumn">
-            <div class="card">
-                <label for="bktitle"><b>Title:</b></label>
-                <input type="text" placeholder="Enter Book Title" name="bktitle" required>
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
 
-                <label for="bkauthor"><b>Author:</b></label>
-                <input type="text" placeholder="Enter Book Author" name="bkauthor" required>
+    // When the user clicks on <span> (x), close the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
 
-                <label for="publisher"><b>Publisher:</b></label>
-                <input type="text" placeholder="Enter Book Publisher" name="bkpublisher">
-
-                <label for="publicationYear"><b>Publication Year:</b></label>
-                <input type="text" placeholder="Enter Book Publication Year" name="bkpublicationYear">
-
-                <label for="category"><b>Category:</b></label>
-                <input type="text" placeholder="Enter Book Category" name="bkcategory">
-
-                <label for="isbn"><b>ISBN:</b></label>
-                <input type="text" placeholder="Enter Book ISBN" name="bkisbn">
-            </div>
-          </div>
-        </div>
-    </form>
+    // Close the modal if the user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>
