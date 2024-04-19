@@ -20,7 +20,6 @@ const firestore = getFirestore();
 // Example usage
 console.log(auth);
 console.log(firestore);
-console.log(database);
 
 // Function to sign in user
 export const signIn = async () => {
