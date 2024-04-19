@@ -49,12 +49,12 @@ export const signIn = async () => {
     }
 };
 
-// Attach the signIn function to the sign in button
-document.addEventListener("DOMContentLoaded", () => {
-    const signInButton = document.getElementById("signInButton");
-    signInButton.addEventListener("click", signIn);
+ document.addEventListener("DOMContentLoaded", () => {
+    const signInButton = document.getElementById("signUpButton"); // Corrected ID to match the button ID in your HTML
+    if (signInButton) {
+        signInButton.addEventListener("click", signIn);
+    }
 });
-
 // Function to sign up user
 // Function to sign up user
 export const signUp = async () => {
@@ -90,8 +90,10 @@ try {
     // Handle sign-up error
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const signUpButton = document.getElementById("signUpButton");
-    signUpButton.addEventListener("click", signUp);
+    const signInButton = document.getElementById("signUpButton"); // Corrected ID to match the button ID in your HTML
+    if (signInButton) {
+        signInButton.addEventListener("click", signIn);
+    }
 });
 
 
