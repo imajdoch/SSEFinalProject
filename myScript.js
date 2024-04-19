@@ -13,6 +13,7 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase and get Auth and Firestore instances
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
