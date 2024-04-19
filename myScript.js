@@ -14,7 +14,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.auth().signInWithEmailAndPassword(email, password);
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -25,31 +24,36 @@ btnLogin.addEventListener("click", signIn);
 btnSignup.addEventListener("click", signUp);
 btnLogout.addEventListener("click", logout);
 
-export const signIn = async (email, password) => {
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+export const signIn = async () => {
+    const txtEmail = document.getElementById("uname");
+    const txtPassword = document.getElementById("psw");
 
-    // Save user information to Firestore
-    await setDoc(doc(firestore, 'users', user.uid), {
-      email: user.email,
-      // Add other user information as needed
-    });
-      
-      onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log('User is signed in');
-      } else {
-        console.log('User is signed out');
-      }
-    });
+    const email = txtEmail.value;
+    const password = txtPassword.value;
 
-    window.location.href = "mainpage.html";
-  } catch (error) {
-    console.error("Sign-in error:", error.message);
-  }
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Save user information to Firestore
+        await setDoc(doc(firestore, 'users', user.uid), {
+            email: user.email,
+            // Add other user information as needed
+        });
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('User is signed in');
+            } else {
+                console.log('User is signed out');
+            }
+        });
+
+        window.location.href = "mainpage.html";
+    } catch (error) {
+        console.error("Sign-in error:", error.message);
+    }
 };
-
 
 export const signUp = async () => {
     const txtEmail = document.getElementById("newEmail");
