@@ -126,7 +126,7 @@ button[type="applyFilter"] {
 /* Star rating */
 .rating {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start; /* Align stars to the left */
 }
 
 .rating input {
@@ -146,6 +146,7 @@ button[type="applyFilter"] {
 .rating input:checked ~ label {
   color: #f7d00a; /* Yellow color for selected stars */
 }
+
 
 /* Footer */
 .footer {
