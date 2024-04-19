@@ -16,8 +16,8 @@ body {
 }
 
 img {
-    width: auto;
-    height: auto;
+    width: fix-content;
+    height: fix-content;
   }
   
 /* Center the avatar image inside this container */
@@ -27,7 +27,6 @@ img {
   
 /* Avatar image */
 img.avatar {
-    width: 40%;
     border-radius: 50%;
 }
 
