@@ -23,8 +23,8 @@ console.log(firestore);
 
 // Function to sign in user
 export const signIn = async () => {
-    const txtEmail = document.getElementById("uname");
-    const txtPassword = document.getElementById("psw");
+    const txtEmail = document.getElementById("newEmail"); // Change to match the ID of the email input field
+    const txtPassword = document.getElementById("newPassword"); // Change to match the ID of the password input field
 
     const email = txtEmail.value;
     const password = txtPassword.value;
@@ -33,13 +33,13 @@ export const signIn = async () => {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         
-console.log('User:', user);
-console.log('Before setDoc');
-await setDoc(doc(firestore, 'users', user.uid), {
-    email: user.email,
-    // Add other user information as needed
-});
-console.log('After setDoc');
+        console.log('User:', user);
+        console.log('Before setDoc');
+        await setDoc(doc(firestore, 'users', user.uid), {
+            email: user.email,
+            // Add other user information as needed
+        });
+        console.log('After setDoc');
 
         // Redirect to main page after successful login
         window.location.href = "mainpage.html";
@@ -48,6 +48,12 @@ console.log('After setDoc');
         // Handle sign-in error
     }
 };
+
+// Attach the signIn function to the sign in button
+document.addEventListener("DOMContentLoaded", () => {
+    const signInButton = document.getElementById("signUpButton");
+    signInButton.addEventListener("click", signIn);
+});
 
 // Function to sign up user
 // Function to sign up user
