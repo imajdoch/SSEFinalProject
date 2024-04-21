@@ -13,8 +13,10 @@ var firebaseConfig = {
     measurementId: "YOUR_MEASUREMENT_ID"
 };
 
-firebase.initializeApp(firebaseConfig);
+const t = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = getAuth(firebaseApp);
+const firestore = getFirestore();
 
 // JavaScript for handling image upload and book addition
 document.getElementById('addBook').addEventListener('submit', function(event) {
