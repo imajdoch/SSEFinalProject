@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { setDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 // JavaScript for handling image upload and book addition
-document.getElementById('addBookButton').addEventListener('submit', function(event) {
+document.getElementById('addBookForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Handle image upload
@@ -47,7 +47,7 @@ document.getElementById('addBookButton').addEventListener('submit', function(eve
     const db = firebase.firestore();
 
     // Add book to Firestore
-    db.collection("addBook").add({
+    db.collection("books").add({
         title: title,
         author: author,
         publisher: publisher,
