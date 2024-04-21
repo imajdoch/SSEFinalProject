@@ -47,7 +47,7 @@ document.getElementById('addBookButton').addEventListener('submit', function(eve
     const db = firebase.firestore();
 
     // Add book to Firestore
-    db.collection("books").add({
+    db.collection("addBook").add({
         title: title,
         author: author,
         publisher: publisher,
