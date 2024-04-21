@@ -11,6 +11,9 @@ var firebaseConfig = {
     appId: "1:706635744855:web:c6a8a54603d38269a60512",
     measurementId: "G-FEWQLQ3PH8"
 };
+
+firebase.initializeApp(firebaseConfig);
+
 // JavaScript for handling image upload and book addition
 document.getElementById('addBook').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
