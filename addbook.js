@@ -3,7 +3,7 @@ import { setDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 // Initialize Firebase
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
     projectId: "YOUR_PROJECT_ID",
