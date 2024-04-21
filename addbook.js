@@ -13,7 +13,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+const db = firebase.firestore();
 // JavaScript for handling image upload and book addition
 document.getElementById('addBook').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
