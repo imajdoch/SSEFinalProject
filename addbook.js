@@ -2,14 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { setDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
-    authDomain: "ssefinalproject.firebaseapp.com",
-    projectId: "ssefinalproject",
-    storageBucket: "ssefinalproject.appspot.com",
-    messagingSenderId: "706635744855",
-    appId: "1:706635744855:web:c6a8a54603d38269a60512",
-    measurementId: "G-FEWQLQ3PH8"
+// Initialize Firebase
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -45,21 +46,6 @@ document.getElementById('addBook').addEventListener('submit', function(event) {
     const isbn = document.getElementById('bkisbn').value;
     const rating = document.querySelector('input[name="rating"]:checked').value;
 
-    // Initialize Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyDLhWz4KLKNNuDrNhhtLY8Xrzy75RZ7LTE",
-        authDomain: "ssefinalproject.firebaseapp.com",
-        projectId: "ssefinalproject",
-        storageBucket: "ssefinalproject.appspot.com",
-        messagingSenderId: "706635744855",
-        appId: "1:706635744855:web:c6a8a54603d38269a60512",
-        measurementId: "G-FEWQLQ3PH8"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    // Get a reference to the Firestore database
-    const db = firebase.firestore();
-
     // Add book to Firestore
     db.collection("addBook").add({
         title: title,
@@ -84,8 +70,6 @@ document.getElementById('addBook').addEventListener('submit', function(event) {
 
 // Function to fetch books from Firestore
 function fetchBooks() {
-    const db = firebase.firestore();
-
     db.collection("books").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const book = doc.data();
