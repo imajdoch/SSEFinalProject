@@ -67,3 +67,38 @@ document.getElementById('addBookButton').addEventListener('submit', function(eve
         alert("Failed to add book. Please try again later.");
     });
 });
+
+// Function to fetch books from Firestore
+function fetchBooks() {
+    const db = firebase.firestore();
+
+    db.collection("books").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const book = doc.data();
+            displayBook(book);
+        });
+    });
+}
+
+// Function to display a book on the main page
+function displayBook(book) {
+    const booksContainer = document.getElementById('booksContainer');
+
+    // Create HTML elements for the book
+    const bookElement = document.createElement('div');
+    bookElement.classList.add('book');
+    bookElement.innerHTML = `
+        <img src="${book.imageUrl}" alt="${book.title}">
+        <h3>${book.title}</h3>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Category:</strong> ${book.category}</p>
+        <p><strong>Rating:</strong> ${book.rating}</p>
+    `;
+
+    // Append the book element to the books container
+    booksContainer.appendChild(bookElement);
+}
+
+// Call fetchBooks() to load books when the page loads
+window.addEventListener('load', fetchBooks);
+
