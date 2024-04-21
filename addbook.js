@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { setDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 // JavaScript for handling image upload and book addition
-document.getElementById('addBookForm').addEventListener('submit', function(event) {
+document.getElementById('addBook').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Handle image upload
@@ -60,7 +60,7 @@ document.getElementById('addBookForm').addEventListener('submit', function(event
         console.log("Document written with ID: ", docRef.id);
         alert("Book added successfully!");
         // Reset form fields after successful addition
-        document.getElementById('addBookForm').reset();
+        document.getElementById('addBook').reset();
     })
     .catch((error) => {
         console.error("Error adding document: ", error);
