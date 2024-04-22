@@ -99,7 +99,7 @@
 
     <script>
       // Function to fetch and display books from local storage
-    function fetchAndDisplayBooks() {
+    function fetchBooks() {
         const bookGrid = document.getElementById('bookGrid');
         if (!bookGrid) {
             console.error('bookGrid element not found!');
@@ -121,8 +121,8 @@
         });
     }   
 
-// Call the function initially to load existing books
-fetchAndDisplayBooks();
+    // Call the function initially to load existing books
+    fetchBooks();
 
 
       // Function to display the logged-in user's email
