@@ -136,7 +136,7 @@ fetchAndDisplayBooks();
       }
 
       // Check authentication state on page load
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebaseApp.auth().onAuthStateChanged(function(user) {
           // Display the logged-in user's email
           displayCurrentUserEmail(user);
 
