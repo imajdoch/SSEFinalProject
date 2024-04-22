@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Book</title>
+    <link rel="stylesheet" href="mainpageStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Remove Book</h1>
+        <form id="removeBookForm">
+            <label for="bookTitle">Title:</label>
+            <select id="bookTitle" name="bookTitle">
+                <!-- Options will be dynamically added here -->
+            </select>
+            <button type="submit">Remove</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to fetch and display books from local storage
+        function fetchAndDisplayBooks() {
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+            const bookTitleSelect = document.getElementById('bookTitle');
+
+            // Clear existing options
+            bookTitleSelect.innerHTML = '';
+
+            // Add options for each book title
+            books.forEach(book => {
+                const option = document.createElement('option');
+                option.value = book.title;
+                option.textContent = book.title;
+                bookTitleSelect.appendChild(option);
+            });
+        }
+
+        // Call the function initially to load existing books
+        fetchAndDisplayBooks();
+
+        // Event listener for form submission
+        document.getElementById('removeBookForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const selectedTitle = document.getElementById('bookTitle').value;
+
+            // Retrieve books from local storage
+            let books = JSON.parse(localStorage.getItem('books')) || [];
+
+            // Remove the selected book from the array
+            books = books.filter(book => book.title !== selectedTitle);
+
+            // Update local storage with the modified books array
+            localStorage.setItem('books', JSON.stringify(books));
+
+            // Refresh the book list
+            fetchAndDisplayBooks();
+
+            // Optionally, you can display a success message or perform other actions
+            alert('Book removed successfully!');
+        });
+    </script>
+</body>
+</html>
