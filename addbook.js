@@ -43,34 +43,19 @@ document.getElementById('addBook').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Retrieve book information from input fields
-    const title = document.querySelector('input[name="bktitle"]').value;
-    const author = document.querySelector('input[name="bkauthor"]').value;
-    const publisher = document.querySelector('input[name="bkpublisher"]').value;
-    const publicationYear = document.querySelector('input[name="bkpublicationYear"]').value;
-    const category = document.querySelector('input[name="bkcategory"]').value;
-    const isbn = document.querySelector('input[name="bkisbn"]').value;
+    const title = document.querySelector('input[name="title"]').value;
+    const author = document.querySelector('input[name="author"]').value;
+    const publisher = document.querySelector('input[name="publisher"]').value;
+    const publicationYear = document.querySelector('input[name="publicationYear"]').value;
+    const category = document.querySelector('input[name="category"]').value;
+    const isbn = document.querySelector('input[name="isbn"]').value;
     const rating = document.querySelector('input[name="rating"]:checked').value;
+    
+
+    const newBook = Book(title, author, publisher, publicationYear, category, isbn, rating, img);
 
     // Add book to Firestore
-    setDoc(doc(db, "books", title), {
-        title: title,
-        author: author,
-        publisher: publisher,
-        publicationYear: publicationYear,
-        category: category,
-        isbn: isbn,
-        rating: rating
-    })
-    .then(() => {
-        console.log("Document successfully written!");
-        alert("Book added successfully!");
-        // Reset form fields after successful addition
-        document.getElementById('addBook').reset();
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-        alert("Failed to add book. Please try again later.");
-    });
+
 });
 
 // Function to fetch books from Firestore
@@ -96,16 +81,19 @@ async function fetchBooks() {
 
 // Function to display a book on the main page
 function displayBook(book) {
-    const booksContainer = document.getElementById('booksContainer');
+    const booksContainer = document.getElementById('newBook');
 
     // Create HTML elements for the book
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
     bookElement.innerHTML = `
-        <img src="${book.imageUrl}" alt="${book.title}">
-        <h3>${book.title}</h3>
-        <p><strong>Author:</strong> ${book.author}</p>
-        <p><strong>Category:</strong> ${book.category}</p>
+        <img src="${newBook.img}" alt="${newBook.title}">
+        <h3>${newBook.title}</h3>
+        <p><strong>Author:</strong> ${newBook.author}</p>
+        <p><strong>Publisher:</strong> ${newBook.publisher}</p>
+        <p><strong>Publication Year:</strong> ${newBook.publicationYear}</p>
+        <p><strong>Category:</strong> ${newBook.category}</p>
+        <p><strong>ISBN:</strong> ${newBook.isbn}</p>
         <p><strong>Rating:</strong> ${book.rating}</p>
     `;
 
