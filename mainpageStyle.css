@@ -93,11 +93,12 @@ img.avatar {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust as needed */
   grid-gap: 20px; /* Adjust the gap between grid items */
+  border-color: #333;
 }
 
 /* Each book item */
 .book {
-  text-align: center;
+  text-align: left;
 }
 
 .book img {
@@ -107,7 +108,10 @@ img.avatar {
 }
 
 .book p {
-  margin-top: 5px; /* Adjust spacing between image and title */
+  font-weight: bold;
+}
+
+.book p strong {
   font-weight: bold;
 }
   
