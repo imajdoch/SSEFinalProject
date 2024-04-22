@@ -55,46 +55,6 @@ export const signIn = async () => {
         signInButton.addEventListener("click", signIn);
     }
 });
-// Function to sign up user
-// Function to sign up user
-export const signUp = async () => {
-    const txtEmail = document.getElementById("newEmail");
-    const txtPassword = document.getElementById("newPassword");
-
-    const email = txtEmail.value;
-    const password = txtPassword.value;
-
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("User signed up successfully");
-        // Redirect to main page after successful sign-up
-        window.location.href = "mainpage.html";
-    } catch (error) {
-        console.error("Sign-up error:", error.message);
-        // Handle sign-up error
-    }
-};
-
-try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    console.log("User signed up successfully");
-    // Save user data to Firestore
-    await setDoc(doc(firestore, 'users', userCredential.user.uid), {
-        email: email,
-        // Add other user information as needed
-    });
-    // Redirect to main page after successful sign-up
-    window.location.href = "mainpage.html";
-} catch (error) {
-    console.error("Sign-up error:", error.code, error.message);
-    // Handle sign-up error
-}
-document.addEventListener("DOMContentLoaded", () => {
-    const signInButton = document.getElementById("signUpButton"); // Corrected ID to match the button ID in your HTML
-    if (signInButton) {
-        signInButton.addEventListener("click", signIn);
-    }
-});
 
 
 // Function to log out user
