@@ -21,7 +21,7 @@ const db = getFirestore(firebaseApp);
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    document.getElementById('addBook').addEventListener(function(event) {
+    document.getElementById('addBook').addEventListener('submit', function() {
         event.preventDefault(); // Prevent the default form submission behavior
 
         // Retrieve book information from input fields
