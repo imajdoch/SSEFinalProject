@@ -6,8 +6,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js" type="module"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js" type="module"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js" type="module"></script>
-        <!-- Firebase Realtime Database -->
-        <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js" type= "module"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js" type= "module"></script>
     <script src="myScript.js" type="module"></script>
     <script src="addbook.js" type="module"></script>
 
@@ -22,100 +22,112 @@
         </div>
 
         <div class="header">
-          <h1>Welcome, reader!</h1>
+            <h1>Welcome, reader!</h1>
         </div>
-        
-<div class="topnav" id="topnav">
-  <a href='README.md'>About Us</a>
-  <!-- This anchor tag is where the "Add New Book" link will be -->
-  <a href='addbook.html' id="addBookLink">Add New Book</a>
-  <a href="index.html" style="float:right">Logout</a>
-</div>
 
-      
+        <div class="topnav" id="topnav">
+            <a href='README.md'>About Us</a>
+            <!-- This anchor tag is where the "Add New Book" link will be -->
+            <a href='addbook.html' id="addBookLink">Add New Book</a>
+            <a href="index.html" style="float:right">Logout</a>
+        </div>
+
+
         <div class="row">
-          <div class="leftcolumn">
-            <!-- Search bar -->
-            <div class="card">
-              <input type="text" placeholder="Search..." name="search">
-              <button type="submit">Search</button>
+            <div class="leftcolumn">
+                <!-- Search bar -->
+                <div class="card">
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit">Search</button>
+                </div>
+
+                <div class="card">
+                    <h2>Filter</h2>
+                    <input type="checkbox" name="title"> Title
+                    <br></br>
+                    <input type="checkbox" name="author"> Author
+                    <br></br>
+                    <input type="checkbox" name="genre"> Genre
+                    <br></br>
+                    <input type="checkbox" name="publish_date"> Published Date
+                    <br></br>
+                    <button type="applyFilter">Apply Filter</button>
+                </div>
             </div>
 
-            <div class="card">
-              <h2>Filter</h2>
-              <input type="checkbox" name="title"> Title
-              <br></br>
-              <input type="checkbox" name="author"> Author
-              <br></br>
-              <input type="checkbox" name="genre"> Genre
-              <br></br>
-              <input type="checkbox" name="publish_date"> Published Date
-              <br></br>
-              <button type="applyFilter">Apply Filter</button>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h2>My Library</h2>
+                    <div id="bookGrid" class="book-grid">
+                        <div class="book">
+                            <img src="img/Book1.jpg" alt="Book 1">
+                            <p>Secure Software Development</p>
+                        </div>
+
+                        <div class="book">
+                            <img src="img/Book2.jpg" alt="Book 2">
+                            <p>Computer Security</p>
+                        </div>
+
+                        <div class="book">
+                            <img src="img/Book3.jpg" alt="Book 3">
+                            <p>Software Engineering</p>
+                        </div>
+
+                        <div class="book">
+                            <img src="img/Book4.jpg" alt="Book 4">
+                            <p>Engineering Safe and Secure Software Systems</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="rightcolumn">
-            <div class="card">
-              <h2>My Library</h2>
-              <div id="bookGrid" class="book-grid">
-                <div class="book">
-                  <img src="img/Book1.jpg" alt="Book 1">
-                  <p>Secure Software Development</p>
-                </div>
-
-                <div class="book">
-                  <img src="img/Book2.jpg" alt="Book 2">
-                  <p>Computer Security</p>
-                </div>
-
-                <div class="book">
-                  <img src="img/Book3.jpg" alt="Book 3">
-                  <p>Software Engineering</p>
-                </div>
-
-                <div class="book">
-                  <img src="img/Book4.jpg" alt="Book 4">
-                  <p>Engineering Safe and Secure Software Systems</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Pop-up modal -->
         <div id="bookInfoModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="title"></h2>
-            <p id="author"></p>
-            <p id="publisher"></p>
-            <p id="publicationYear"></p>
-            <p id="category"></p>
-            <p id="isbn"></p>
-            <p id="rating"></p>
-            <p id="img"></p>
-          </div>
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="title"></h2>
+                <p id="author"></p>
+                <p id="publisher"></p>
+                <p id="publicationYear"></p>
+                <p id="category"></p>
+                <p id="isbn"></p>
+                <p id="rating"></p>
+                <p id="img"></p>
+            </div>
         </div>
     </form>
 
     <script>
-      // Function to fetch and display books
-      function fetchAndDisplayBooks() {
-          const bookGrid = document.getElementById('bookGrid');
-          if (!bookGrid) {
-              console.error('bookGrid element not found!');
-              return; // Exit the function if bookGrid is null
-          }
-  
-          // Get the new book from local storage
-          const newBook = JSON.parse(localStorage.getItem('newBook'));
-          
-          if (newBook) {
-              // Add the new book to the grid
-              const bookDiv = document.createElement('div');
-              bookDiv.classList.add('book');
-              bookDiv.innerHTML = `
+        // Check authentication state on page load
+        firebase.auth().onAuthStateChanged(function(user) {
+            const addBookLink = document.getElementById('addBookLink');
+            if (user && user.email === "admin@gmail.com") {
+                // If user is admin, show Add New Book link
+                addBookLink.style.display = 'block';
+            } else {
+                // If user is not admin, hide Add New Book link
+                addBookLink.style.display = 'none';
+            }
+        });
+
+        // Function to fetch and display books
+        function fetchAndDisplayBooks() {
+            const bookGrid = document.getElementById('bookGrid');
+            if (!bookGrid) {
+                console.error('bookGrid element not found!');
+                return; // Exit the function if bookGrid is null
+            }
+
+            // Get the new book from local storage
+            const newBook = JSON.parse(localStorage.getItem('newBook'));
+
+            if (newBook) {
+                // Add the new book to the grid
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('book');
+                bookDiv.innerHTML = `
                   <p>${newBook.title}</p>
                   <p>${newBook.author}</p>
                   <p>${newBook.publisher}</p>
