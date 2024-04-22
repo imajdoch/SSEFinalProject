@@ -145,26 +145,33 @@
 
 </script>
 
-    <!-- Add Firebase scripts and auth.js -->
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-    <script src="auth.js"></script>
+<script>
+    // Check authentication state on page load
+    window.addEventListener('load', () => {
+        checkAuthentication();
+    });
 
-    <script>
-        // Check authentication state on page load
-        window.addEventListener('load', () => {
-            checkAuthentication();
-        });
-
-        function checkAuthentication() {
-            // Check if the user is authenticated
-            const user = firebase.auth().currentUser;
-            if (!user || user.email !== "admin@gmail.com") {
-                // If user is not authenticated or not an admin, redirect to main page
-                window.location.href = "mainpage.html";
-            }
+    function checkAuthentication() {
+        // Check if the user is authenticated
+        const user = firebase.auth().currentUser;
+        if (!user || user.email !== "admin@gmail.com") {
+            // If user is not authenticated or not an admin, redirect to main page
+            window.location.href = "mainpage.html";
         }
-    </script>
+    }
+
+    // Function to sign out
+    function signOut() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful, redirect to login page
+            window.location.href = "index.html";
+        }).catch((error) => {
+            // An error occurred during sign-out
+            console.error("Sign out error:", error);
+        });
+    }
+</script>
+
 
 </body>
 </html>
