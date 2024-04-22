@@ -81,3 +81,22 @@ onAuthStateChanged(auth, (user) => {
         // User is signed out, perform necessary actions
     }
 });
+
+// Function to store user information in local storage
+const storeUserInfo = (user) => {
+    localStorage.setItem('user', JSON.stringify(user));
+};
+
+// Listener for authentication state changes
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // Store user information in local storage
+        storeUserInfo(user);
+        console.log(user);
+        // User is signed in, perform necessary actions
+    } else {
+        console.log('User is signed out');
+        // User is signed out, perform necessary actions
+    }
+});
+
