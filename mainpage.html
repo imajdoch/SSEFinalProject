@@ -33,6 +33,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
             <a href='addbook.html' id="addBookLink">Add New Book</a>
             <a href="index.html" style="float:right">Logout</a>
             <a href="removebook.html" id="">Remove Book</a>
+            <span id="currentUserEmail"></span> <!-- Add a span element to display the user's email -->
+            <a href="#" onclick="signOut();" style="float:right">Logout</a> <!-- Add a logout button -->
         </div>
 
 
@@ -103,21 +105,41 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
     </form>
 
     <script>
+      // Function to display the logged-in user's email
+      function displayCurrentUserEmail(user) {
+          const currentUserEmailElement = document.getElementById('currentUserEmail');
+          if (user) {
+              currentUserEmailElement.textContent = "Logged in as: " + user.email;
+          } else {
+              currentUserEmailElement.textContent = ""; // Clear the content if no user is logged in
+          }
+      }
+
       // Check authentication state on page load
       firebase.auth().onAuthStateChanged(function(user) {
-          console.log("Current user:", user); // Log the current user object
-          
+          // Display the logged-in user's email
+          displayCurrentUserEmail(user);
+
           const addBookLink = document.getElementById('addBookLink');
           if (user && user.email === "admin@gmail.com") {
               // If user is admin, show Add New Book link
-              console.log("User is admin. Showing Add New Book link.");
               addBookLink.style.display = 'block';
           } else {
               // If user is not admin, hide Add New Book link
-              console.log("User is not admin. Hiding Add New Book link.");
               addBookLink.style.display = 'none';
           }
       });
+
+      // Function to sign out
+      function signOut() {
+          firebase.auth().signOut().then(() => {
+              // Sign-out successful, redirect to login page
+              window.location.href = "index.html";
+          }).catch((error) => {
+              // An error occurred during sign-out
+              console.error("Sign out error:", error);
+          });
+      }
   </script>
 
 
