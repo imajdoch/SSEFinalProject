@@ -102,6 +102,7 @@
     <script>
         // Check authentication state on page load
         firebase.auth().onAuthStateChanged(function(user) {
+            console.log("User:", user); // Add this line for debugging
             const addBookLink = document.getElementById('addBookLink');
             if (user && user.email === "admin@gmail.com") {
                 // If user is admin, show Add New Book link
@@ -150,7 +151,8 @@
       // Add event listener to each book element
       const books = bookGrid.querySelectorAll('.book');
       books.forEach(book => {
-        book.addEventListener('click', () => {
+        book.addEventListener('click', () =>
+        {
             const bookId = book.dataset.bookId; // Get the book ID from data attribute
             const bookInfo = getBookInfoById(bookId); // Function to retrieve book information
             
