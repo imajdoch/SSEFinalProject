@@ -101,18 +101,22 @@
     </form>
 
     <script>
-        // Check authentication state on page load
-        firebase.auth().onAuthStateChanged(function(user) {
-            const addBookLink = document.getElementById('addBookLink');
-            if (user && user.email === "admin@gmail.com") {
-                // If user is admin, show Add New Book link
-                addBookLink.style.display = 'block';
-            } else {
-                // If user is not admin, hide Add New Book link
-                addBookLink.style.display = 'none';
-            }
-        });
-    </script>
+      // Check authentication state on page load
+      firebase.auth().onAuthStateChanged(function(user) {
+          console.log("Current user:", user); // Log the current user object
+          
+          const addBookLink = document.getElementById('addBookLink');
+          if (user && user.email === "admin@gmail.com") {
+              // If user is admin, show Add New Book link
+              console.log("User is admin. Showing Add New Book link.");
+              addBookLink.style.display = 'block';
+          } else {
+              // If user is not admin, hide Add New Book link
+              console.log("User is not admin. Hiding Add New Book link.");
+              addBookLink.style.display = 'none';
+          }
+      });
+  </script>
 
 
 </body>
