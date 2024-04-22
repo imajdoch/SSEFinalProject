@@ -114,8 +114,12 @@
               const bookDiv = document.createElement('div');
               bookDiv.classList.add('book');
               bookDiv.innerHTML = `
-                  <img src="${newBook.image}" alt="${newBook.title}">
                   <p>${newBook.title}</p>
+                  <p>${newBook.author}</p>
+                  <p>${newBook.publisher}</p>
+                  <p>${newBook.publicationYear}</p>
+                  <p>${newBook.category}</p>
+                  <p>${newBook.isbn}</p>
               `;
               bookGrid.appendChild(bookDiv);
               
