@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const publicationYear = document.querySelector('input[name="publicationYear"]').value;
         const category = document.querySelector('input[name="category"]').value;
         const isbn = document.querySelector('input[name="isbn"]').value;
-        const rating = document.querySelector('input[name="rating"]:checked').value;
+        //const rating = document.querySelector('input[name="rating"]:checked').value;
     
 
         const newBook = Book(title, author, publisher, publicationYear, category, isbn);
