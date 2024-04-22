@@ -17,6 +17,7 @@ var firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
+document.addEventListener('DOMContentLoaded', function() {
 // JavaScript for handling image upload and book addition
 document.getElementById('addBook').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
