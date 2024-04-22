@@ -27,28 +27,6 @@ class Book {
     rating;
     img;
 
-    constructor(title, author, publisher, publicationYear, category, isbn)
-    {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
-        this.publicationYear = publicationYear;
-        this.category = category;
-        this.isbn = isbn;
-    }
-
-    constructor(title, author, publisher, publicationYear, category, isbn, rating)
-    {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
-        this.publicationYear = publicationYear;
-        this.category = category;
-        this.isbn = isbn;
-        this.rating = rating;
-        this.img = img;
-    }
-
     constructor(title, author, publisher, publicationYear, category, isbn, rating, img)
     {
         this.title = title;
