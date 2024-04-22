@@ -135,6 +135,31 @@
       }
   </script>
 
+<script>
+  // Function to retrieve user information from local storage
+  const getUserInfo = () => {
+      const userInfo = localStorage.getItem('user');
+      return userInfo ? JSON.parse(userInfo) : null;
+  };
+
+  // Function to check if the user is an admin
+  const isUserAdmin = () => {
+      const user = getUserInfo();
+      return user && user.email === 'admin@gmail.com';
+  };
+
+  // Function to hide the "Add New Book" link if the user is not an admin
+  const hideAddBookLink = () => {
+      const addBookLink = document.getElementById('addBookLink');
+      if (!isUserAdmin()) {
+          addBookLink.style.display = 'none';
+      }
+  };
+
+  // Check authentication state and hide "Add New Book" link if needed
+  hideAddBookLink();
+</script>
+
 
 </body>
 </html>
