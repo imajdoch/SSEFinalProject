@@ -25,13 +25,13 @@
           <h1>Welcome, reader!</h1>
         </div>
         
-        <div class="topnav">
-          <a href='README.md'>About Us</a>
-          <!-- Remove the Add New Book link for non-admin users -->
-          <!-- <a href='addbook.html'>Add New Book</a> -->
-          <a href="index.html" style="float:right">Logout</a>
-        </div>
-        
+<div class="topnav" id="topnav">
+  <a href='README.md'>About Us</a>
+  <!-- This anchor tag is where the "Add New Book" link will be -->
+  <a href='addbook.html' id="addBookLink">Add New Book</a>
+  <a href="index.html" style="float:right">Logout</a>
+</div>
+
       
         <div class="row">
           <div class="leftcolumn">
@@ -98,18 +98,6 @@
           </div>
         </div>
     </form>
-
-    <script>
-      // Check if the user's email is admin@gmail.com
-      const user = firebase.auth().currentUser;
-      if (user && user.email === "admin@gmail.com") {
-          // If user is admin, show Add New Book link
-          const addBookLink = document.createElement('a');
-          addBookLink.href = 'addbook.html';
-          addBookLink.textContent = 'Add New Book';
-          document.querySelector('.topnav').appendChild(addBookLink);
-      }
-  </script>
 
     <script>
       // Function to fetch and display books
