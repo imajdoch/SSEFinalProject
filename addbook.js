@@ -105,3 +105,5 @@ function displayBook(book) {
 // Call fetchBooks() to load books when the page loads
 window.addEventListener('load', fetchBooks);
 
+}
+
