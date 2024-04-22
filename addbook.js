@@ -14,6 +14,7 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase Firestore
+const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 // JavaScript for handling image upload and book addition
