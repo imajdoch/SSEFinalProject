@@ -24,10 +24,8 @@ class Book {
     publicationYear;
     category;
     isbn;
-    rating;
-    img;
 
-    constructor(title, author, publisher, publicationYear, category, isbn, rating, img)
+    constructor(title, author, publisher, publicationYear, category, isbn)
     {
         this.title = title;
         this.author = author;
@@ -35,8 +33,6 @@ class Book {
         this.publicationYear = publicationYear;
         this.category = category;
         this.isbn = isbn;
-        this.rating = rating;
-        this.img = img;
     }
 
     getTitle()
@@ -68,15 +64,4 @@ class Book {
     {
         return isbn;
     }
-
-    getRating()
-    {
-        return rating;
-    }
-
-    getImg()
-    {
-        return img;
-    }
-
 }

@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { setDoc, doc, getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import {title, author, publisher, publicationYear, category, isbn, rating, img} from './book.js';
+import {title, author, publisher, publicationYear, category, isbn} from './book.mjs';
 
 // Initialize Firebase
 var firebaseConfig = {
@@ -19,42 +19,21 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 document.addEventListener('DOMContentLoaded', function() {
-// JavaScript for handling image upload and book addition
-document.getElementById('addBook').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
 
-    // Handle image upload
-    const fileInput = document.getElementById('bookImage');
-    const uploadedImage = document.getElementById('uploadedImage');
+    document.getElementById('addBook').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
 
-    if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            uploadedImage.innerHTML = ''; // Clear previous image
-            uploadedImage.appendChild(img);
-        }
-
-        reader.readAsDataURL(fileInput.files[0]);
-    }
-});
-
-document.getElementById('addBook').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    // Retrieve book information from input fields
-    const title = document.querySelector('input[name="title"]').value;
-    const author = document.querySelector('input[name="author"]').value;
-    const publisher = document.querySelector('input[name="publisher"]').value;
-    const publicationYear = document.querySelector('input[name="publicationYear"]').value;
-    const category = document.querySelector('input[name="category"]').value;
-    const isbn = document.querySelector('input[name="isbn"]').value;
-    const rating = document.querySelector('input[name="rating"]:checked').value;
+        // Retrieve book information from input fields
+        const title = document.querySelector('input[name="title"]').value;
+        const author = document.querySelector('input[name="author"]').value;
+        const publisher = document.querySelector('input[name="publisher"]').value;
+        const publicationYear = document.querySelector('input[name="publicationYear"]').value;
+        const category = document.querySelector('input[name="category"]').value;
+        const isbn = document.querySelector('input[name="isbn"]').value;
+        const rating = document.querySelector('input[name="rating"]:checked').value;
     
 
-    const newBook = Book(title, author, publisher, publicationYear, category, isbn, rating, img);
+        const newBook = Book(title, author, publisher, publicationYear, category, isbn, rating, img);
 
     // Add book to Firestore
 
