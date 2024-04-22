@@ -13,10 +13,11 @@ var firebaseConfig = {
     measurementId: "G-FEWQLQ3PH8"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+// Initialize Firebase Firestore
+const db = getFirestore(firebaseApp);
 
 // JavaScript for handling image upload and book addition
-document.getElementById('addBook').addEventListener(db'submit', function(event) {
+document.getElementById('imageUploadForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
 
     // Handle image upload
@@ -35,18 +36,22 @@ document.getElementById('addBook').addEventListener(db'submit', function(event) 
 
         reader.readAsDataURL(fileInput.files[0]);
     }
+});
+
+document.getElementById('addBook').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
     // Retrieve book information from input fields
-    const title = document.getElementById('bktitle').value;
-    const author = document.getElementById('bkauthor').value;
-    const publisher = document.getElementById('bkpublisher').value;
-    const publicationYear = document.getElementById('bkpublicationYear').value;
-    const category = document.getElementById('bkcategory').value;
-    const isbn = document.getElementById('bkisbn').value;
+    const title = document.querySelector('input[name="bktitle"]').value;
+    const author = document.querySelector('input[name="bkauthor"]').value;
+    const publisher = document.querySelector('input[name="bkpublisher"]').value;
+    const publicationYear = document.querySelector('input[name="bkpublicationYear"]').value;
+    const category = document.querySelector('input[name="bkcategory"]').value;
+    const isbn = document.querySelector('input[name="bkisbn"]').value;
     const rating = document.querySelector('input[name="rating"]:checked').value;
 
     // Add book to Firestore
-    db.collection("addBook").add({
+    setDoc(doc(db, "books", title), {
         title: title,
         author: author,
         publisher: publisher,
@@ -55,8 +60,8 @@ document.getElementById('addBook').addEventListener(db'submit', function(event) 
         isbn: isbn,
         rating: rating
     })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+    .then(() => {
+        console.log("Document successfully written!");
         alert("Book added successfully!");
         // Reset form fields after successful addition
         document.getElementById('addBook').reset();
