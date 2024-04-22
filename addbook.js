@@ -74,6 +74,7 @@ document.getElementById('addBook').addEventListener('submit', function(event) {
 });
 
 // Function to fetch books from Firestore
+/*
 function fetchBooks() {
     db.collection("books").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -82,6 +83,16 @@ function fetchBooks() {
         });
     });
 }
+*/
+async function fetchBooks() {
+    const booksCollectionRef = collection(db, "books");
+    const querySnapshot = await getDocs(booksCollectionRef);
+    querySnapshot.forEach((doc) => {
+        const book = doc.data();
+        displayBook(book);
+    });
+}
+
 
 // Function to display a book on the main page
 function displayBook(book) {
