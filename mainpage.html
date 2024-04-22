@@ -30,8 +30,6 @@
             <!-- This anchor tag is where the "Add New Book" link will be -->
             <a href='addbook.html' id="addBookLink">Add New Book</a>
             <a href="index.html" style="float:right">Logout</a>
-            <a href="removebook.html" id="">Remove Book</a>
-
         </div>
 
 
@@ -104,7 +102,6 @@
     <script>
         // Check authentication state on page load
         firebase.auth().onAuthStateChanged(function(user) {
-            console.log("User:", user); // Add this line for debugging
             const addBookLink = document.getElementById('addBookLink');
             if (user && user.email === "admin@gmail.com") {
                 // If user is admin, show Add New Book link
@@ -114,77 +111,6 @@
                 addBookLink.style.display = 'none';
             }
         });
-
-        // Function to fetch and display books
-        function fetchAndDisplayBooks() {
-            const bookGrid = document.getElementById('bookGrid');
-            if (!bookGrid) {
-                console.error('bookGrid element not found!');
-                return; // Exit the function if bookGrid is null
-            }
-
-            // Get the new book from local storage
-            const newBook = JSON.parse(localStorage.getItem('newBook'));
-
-            if (newBook) {
-                // Add the new book to the grid
-                const bookDiv = document.createElement('div');
-                bookDiv.classList.add('book');
-                bookDiv.innerHTML = `
-                  <p>${newBook.title}</p>
-                  <p>${newBook.author}</p>
-                  <p>${newBook.publisher}</p>
-                  <p>${newBook.publicationYear}</p>
-                  <p>${newBook.category}</p>
-                  <p>${newBook.isbn}</p>
-              `;
-              bookGrid.appendChild(bookDiv);
-              
-              // Remove the new book from local storage
-              localStorage.removeItem('newBook');
-          }
-      }
-  
-      // Call the function initially to load existing books
-      fetchAndDisplayBooks();
-
-      const bookGrid = document.getElementById('bookGrid');
-
-      // Add event listener to each book element
-      const books = bookGrid.querySelectorAll('.book');
-      books.forEach(book => {
-        book.addEventListener('click', () =>
-        {
-            const bookId = book.dataset.bookId; // Get the book ID from data attribute
-            const bookInfo = getBookInfoById(bookId); // Function to retrieve book information
-            
-            // Display book information in a popup or modal
-            displayBookInfoPopup(bookInfo);
-        });
-      });
-
-      // Function to retrieve book information by ID
-      function getBookInfoById(bookId) {
-        // Retrieve the new book information from localStorage
-        const newBook = JSON.parse(localStorage.getItem('newBook'));
-
-        // Check if newBook exists and if it matches the requested bookId
-        if (newBook && newBook.id === bookId) {
-          // Return the new book information
-          return newBook;
-        } 
-        else {
-          // Handle the case where the requested bookId doesn't match the new book
-          console.error('Book with ID ' + bookId + ' not found.');
-          return null;
-        }
-      }
-
-      // Example function to display book information in a popup or modal
-      function displayBookInfoPopup(bookInfo) {
-        // Example: Create a simple alert with book information
-        alert(`Title: ${bookInfo.title}\nAuthor: ${bookInfo.author}\nCategory: ${bookInfo.category}\nPublication Year: ${bookInfo.publicationYear}`);
-      }
     </script>
 
 
