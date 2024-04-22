@@ -31,6 +31,13 @@ export const signUp = async () => {
 
     const email = txtEmail.value;
     const password = txtPassword.value;
+ 
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{10,}$/;
+    if (!passwordRegex.test(password)) {
+        console.error("Password does not meet requirements.");
+        // Handle password requirements not met
+        return;
+    }
 
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
