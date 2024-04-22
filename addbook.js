@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const rating = document.querySelector('input[name="rating"]:checked').value;
     
 
-        const newBook = Book(title, author, publisher, publicationYear, category, isbn, rating, img);
+        const newBook = Book(title, author, publisher, publicationYear, category, isbn);
 
     // Add book to Firestore
 
@@ -68,14 +68,13 @@ function displayBook(book) {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
     bookElement.innerHTML = `
-        <img src="${newBook.img}" alt="${newBook.title}">
         <h3>${newBook.title}</h3>
+        <p><strong>Title:</strong> ${newBook.title}</p>
         <p><strong>Author:</strong> ${newBook.author}</p>
         <p><strong>Publisher:</strong> ${newBook.publisher}</p>
         <p><strong>Publication Year:</strong> ${newBook.publicationYear}</p>
         <p><strong>Category:</strong> ${newBook.category}</p>
         <p><strong>ISBN:</strong> ${newBook.isbn}</p>
-        <p><strong>Rating:</strong> ${book.rating}</p>
     `;
 
     // Append the book element to the books container
