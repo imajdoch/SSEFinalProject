@@ -88,62 +88,6 @@
     </div>
 </form>
 
-<script>
-    /*
-    // JavaScript for handling image upload
-    document.getElementById('addBook').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        const fileInput = document.getElementById('bookImage');
-        const uploadedImage = document.getElementById('uploadedImage');
-
-        if (fileInput.files && fileInput.files[0]) {
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                uploadedImage.innerHTML = ''; // Clear previous image
-                uploadedImage.appendChild(img);
-            }
-
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-    });
-    */
-    /*
-    // JavaScript for handling book addition
-    document.querySelector('button[type="addBook"]').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        // Retrieve book information from input fields
-        const title = document.querySelector('input[name="title"]').value;
-        const author = document.querySelector('input[name="author"]').value;
-        //const coverImg = document.querySelector('input[name="bookImage"]').value;
-        const publisher = document.querySelector('input[name="publisher"]').value;
-        const publicationYear = document.querySelector('input[name="publicationYear"]').value;
-        const category = document.querySelector('input[name="category"]').value;
-        const isbn = document.querySelector('input[name="isbn"]').value;
-        //const rating = document.querySelector('input[name="rating"]').value;
-
-        // Store book information in local storage
-        const newBook = {
-            title: title,
-            author: author,
-            //image: coverImg,
-            publisher: publisher,
-            publicationYear: publicationYear,
-            category: category,
-            isbn: isbn,
-            //rating: rating
-        };
-        localStorage.setItem('newBook', JSON.stringify(newBook));
-
-        // Redirect to mainpage.html
-        window.location.href = 'mainpage.html';
-    });
-*/
-</script>
 
 <script>
     // Check authentication state on page load
