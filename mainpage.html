@@ -106,33 +106,6 @@
     </form>
 
     <script>
-        /*
-      // Function to fetch and display books from local storage
-    function fetchBooks() {
-        const bookGrid = document.getElementById('bookGrid');
-        if (!bookGrid) {
-            console.error('bookGrid element not found!');
-            return; // Exit the function if bookGrid is null
-        }   
-
-    // Retrieve books from local storage
-        const books = JSON.parse(localStorage.getItem('books')) || [];
-
-    // Iterate through each book and add it to the grid
-        books.forEach(book => {
-            const bookDiv = document.createElement('div');
-            bookDiv.classList.add('book');
-            bookDiv.innerHTML = `
-                <img src="${book.imageUrl}" alt="${book.title}">
-                <p>${book.title}</p>
-            `;
-        bookGrid.appendChild(bookDiv);
-        });
-    }   
-
-    // Call the function initially to load existing books
-    fetchBooks();
-    */
 
     // Function to fetch and display books
     function fetchAndDisplayBooks() {
