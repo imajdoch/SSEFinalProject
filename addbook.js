@@ -20,6 +20,50 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('addBook').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Retrieve book information from input fields
+        const title = document.querySelector('input[name="title"]').value;
+        const author = document.querySelector('input[name="author"]').value;
+        const publisher = document.querySelector('input[name="publisher"]').value;
+        const publicationYear = document.querySelector('input[name="publicationYear"]').value;
+        const category = document.querySelector('input[name="category"]').value;
+        const isbn = document.querySelector('input[name="isbn"]').value;
+
+        // Store book information in local storage
+        const newBook = {
+            title: title,
+            author: author,
+            publisher: publisher,
+            publicationYear: publicationYear,
+            category: category,
+            isbn: isbn
+        };
+        localStorage.setItem('newBook', JSON.stringify(newBook));
+
+        // Redirect to mainpage.html
+        window.location.href = 'mainpage.html';
+    });
+});
+
+
+// Function to add a book to local storage
+function addBookToLocalstorage(book) {
+    // Retrieve existing books from local storage or initialize an empty array
+    let books = JSON.parse(localStorage.getItem('books')) || [];
+    
+    // Add the new book to the array of books
+    books.push(book);
+    
+    // Store the updated array of books in local storage
+    localStorage.setItem('books', JSON.stringify(books));
+}
+
+
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('addBook').addEventListener('submit', function() {
         event.preventDefault(); // Prevent the default form submission behavior
@@ -50,7 +94,8 @@ function fetchBooks() {
         });
     });
 }
-*/
+// removed the large commented out thingy here
+
 async function fetchBooks() {
     const booksCollectionRef = collection(db, "books");
     const querySnapshot = await getDocs(booksCollectionRef);
@@ -86,4 +131,5 @@ function displayBook(book) {
 window.addEventListener('load', fetchBooks);
 
 });
+*/
 
