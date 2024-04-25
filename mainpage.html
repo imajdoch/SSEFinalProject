@@ -108,34 +108,35 @@
     <script>
 
     // Function to fetch and display books
-    function fetchAndDisplayBooks() {
-          const bookGrid = document.getElementById('bookGrid');
-          if (!bookGrid) {
-              console.error('bookGrid element not found!');
-              return; // Exit the function if bookGrid is null
-          }
-  
-          // Get the new book from local storage
-          const book = JSON.parse(localStorage.getItem('newBook'));
-          
-          if (book) {
-              // Add the new book to the grid
-              const bookDiv = document.createElement('div');
-              bookDiv.classList.add('book');
-              bookDiv.innerHTML = `
-                  <p><strong>Title:</strong>${book.title}</p>
-                  <p><strong>Aurthor:</strong>${book.author}</p>
-                  <p><strong>Publisher:</strong>${book.publisher}</p>
-                  <p><strong>Publication Year:</strong>${book.publicationYear}</p>
-                  <p><strong>Category:</strong>${book.category}</p>
-                  <p><strong>ISBN:</strong>${book.isbn}</p>
-              `;
-              bookGrid.appendChild(bookDiv);
-              
-              // Remove the new book from local storage
-              //localStorage.removeItem('newBook');
-          }
-      }
+function fetchAndDisplayBooks() {
+    const bookGrid = document.getElementById('bookGrid');
+    if (!bookGrid) {
+        console.error('bookGrid element not found!');
+        return; // Exit the function if bookGrid is null
+    }
+
+    // Get the new book from local storage
+    const book = JSON.parse(localStorage.getItem('newBook'));
+    
+    if (book) {
+        // Add the new book to the grid
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book');
+        bookDiv.innerHTML = `
+            <p><strong>Title:</strong>${book.title}</p>
+            <p><strong>Author:</strong>${book.author}</p>
+            <p><strong>Publisher:</strong>${book.publisher}</p>
+            <p><strong>Publication Year:</strong>${book.publicationYear}</p>
+            <p><strong>Category:</strong>${book.category}</p>
+            <p><strong>ISBN:</strong>${book.isbn}</p>
+        `;
+        bookGrid.appendChild(bookDiv);
+        
+        // Remove the new book from local storage
+        //localStorage.removeItem('newBook');
+    }
+}
+
   
       // Call the function initially to load existing books
       fetchAndDisplayBooks();
