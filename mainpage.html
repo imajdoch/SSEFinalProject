@@ -93,7 +93,7 @@
         </div>
 
         <!-- Pop-up modal -->
-        <div id="bookInfoModal" class="modal">
+     <!--   <div id="bookInfoModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="title"></h2>
@@ -105,7 +105,7 @@
                 <p id="rating"></p>
                 <p id="img"></p>
             </div>
-        </div>
+        </div> -->
     </form>
 
     <script>
@@ -137,7 +137,7 @@ function fetchAndDisplayBooks() {
         bookGrid.appendChild(bookDiv);
         
         // Remove the new book from local storage
-        //localStorage.removeItem('newBook');
+        localStorage.removeItem('newBook');
     }
 }
 
