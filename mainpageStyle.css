@@ -127,6 +127,12 @@ button[type="applyFilter"], button[type="submit"] {
   width: auto;
 }
 
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+
 /* Star rating */
 .rating {
   display: flex;
