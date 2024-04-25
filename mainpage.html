@@ -123,17 +123,17 @@
               const bookDiv = document.createElement('div');
               bookDiv.classList.add('book');
               bookDiv.innerHTML = `
-                  <p>${book.title}</p>
-                  <p>${book.author}</p>
-                  <p>${book.publisher}</p>
-                  <p>${book.publicationYear}</p>
-                  <p>${book.category}</p>
-                  <p>${book.isbn}</p>
+                  <p><strong>Title:</strong>${book.title}</p>
+                  <p><strong>Aurthor:</strong>${book.author}</p>
+                  <p><strong>Publisher:</strong>${book.publisher}</p>
+                  <p><strong>Publication Year:</strong>${book.publicationYear}</p>
+                  <p><strong>Category:</strong>${book.category}</p>
+                  <p><strong>ISBN:</strong>${book.isbn}</p>
               `;
               bookGrid.appendChild(bookDiv);
               
               // Remove the new book from local storage
-              localStorage.removeItem('newBook');
+              //localStorage.removeItem('newBook');
           }
       }
   
