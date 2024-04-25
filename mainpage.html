@@ -26,7 +26,7 @@
             <!-- This anchor tag is where the "Add New Book" link will be -->
             <a href='addbook.html' id="addBookLink">Add New Book</a>
             <a href="index.html" style="float:right">Logout</a>
-            <a href="removebook.html" id="">Remove Book</a>
+            <!-- <a href="removebook.html" id="">Remove Book</a> -->
             <span id="currentUserEmail"></span> <!-- Add a span element to display the user's email -->
         </div>
 
@@ -64,6 +64,7 @@
                             <p><strong>Publication Year:</strong> 2008</p>
                             <p><strong>Category:</strong> Educational</p>
                             <p><strong>ISBN:</strong> 1418065471</p>
+                            <button type="submit">Remove</button>
                         </div>
 
                         <div class="book">
@@ -73,6 +74,7 @@
                             <p><strong>Publication Year:</strong> 2009</p>
                             <p><strong>Category:</strong> Educational</p>
                             <p><strong>ISBN:</strong> 9780136061694</p>
+                            <button type="submit">Remove</button>
                         </div>
 
                         <div class="book">
@@ -82,6 +84,7 @@
                             <p><strong>Publication Year:</strong> 2012</p>
                             <p><strong>Category:</strong> Educational</p>
                             <p><strong>ISBN:</strong> 9781608074723</p>
+                            <button type="submit">Remove</button>
                         </div>
 
                     </div>
@@ -129,11 +132,12 @@ function fetchAndDisplayBooks() {
             <p><strong>Publication Year: </strong>${book.publicationYear}</p>
             <p><strong>Category: </strong>${book.category}</p>
             <p><strong>ISBN: </strong>${book.isbn}</p>
+            <p><button type="submit">Remove</button><p>
         `;
         bookGrid.appendChild(bookDiv);
         
         // Remove the new book from local storage
-        //localStorage.removeItem('newBook');
+        localStorage.removeItem('newBook');
     }
 }
 
