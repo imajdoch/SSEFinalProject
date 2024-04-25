@@ -35,8 +35,8 @@
             <div class="leftcolumn">
                 <!-- Search bar -->
                 <div class="card">
-                    <input type="text" placeholder="Search..." name="search">
-                    <button type="submit">Search</button>
+                    <input id = "sbt" type="text" placeholder="Search..." name="search">
+                    <button id = "sb" type="submit" onclick="showSearch()">Search</button>
                 </div>
 
                 <div class="card">
@@ -239,6 +239,15 @@ function fetchAndDisplayBooks() {
   // Check authentication state and hide "Add New Book" link if needed
   hideAddBookLink();
 </script>
+    <script>
+ function showSearch(){
+        const searchInput = document.getElementById('sbt').value.trim();
+    const searchMessage = `You searched for: ${searchInput}`;
+
+    // Display the search message
+    alert(searchMessage);
+ }
+    </script>
 
 
 </body>
