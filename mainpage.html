@@ -36,7 +36,7 @@
                 <!-- Search bar -->
                 <div class="card">
                     <input id = "sbt" type="text" placeholder="Search..." name="search">
-                    <button id = "sb" type="submit" onclick="showSearch()">Search</button>
+                    <button id = "sb" type="submit" onclick="highlightText()">Search</button>
                 </div>
 
                 <div class="card">
@@ -247,6 +247,16 @@ function fetchAndDisplayBooks() {
     // Display the search message
     alert(searchMessage);
  }
+        function highlightText() {
+    // Get the search query from the input field
+    var searchQuery = document.getElementById('searchInput').value.trim();
+
+    // Highlight the search query in the page content
+    var pageContent = document.body.innerHTML;
+    var highlightedContent = pageContent.replace(new RegExp(searchQuery, 'gi'), '<span class="highlight">$&</span>');
+    document.body.innerHTML = highlightedContent;
+}
+
     </script>
 
 
