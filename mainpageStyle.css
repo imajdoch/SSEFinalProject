@@ -116,7 +116,7 @@ img.avatar {
 }
   
 /* Set a style for all buttons */
-button[type="applyFilter"], button[type="addBook"] {
+button[type="applyFilter"], button[type="submit"] {
   background-color: #3C5233;
   color: white;
   padding: 14px 20px;
